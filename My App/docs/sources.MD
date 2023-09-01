@@ -12,4 +12,4 @@
 ### Links extras
 
 - https://www.kaggle.com/datasets/kkhandekar/cheapest-electric-cars --> site API carros
-- https://lucid.app/lucidchart/a0654454-ab34-480b-9e21-cc5159dac551/edit?viewport_loc=380%2C-21%2C2016...
+- https://lucid.app/lucidchart/a0654454-ab34-480b-9e21-cc5159dac551/edit?viewport_loc=380%2C-21%2C2016 --> Diagrama ER Banco de Dados
