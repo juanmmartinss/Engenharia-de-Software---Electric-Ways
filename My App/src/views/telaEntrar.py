@@ -66,7 +66,7 @@ body = Container(
                     Text(value = "Esqueceu a senha?", size = 15, color = colors.WHITE)
                     )
                 ),
-                margin = margin.only(left = 35)
+                margin = margin.only(left = 30)
             ),
 
 

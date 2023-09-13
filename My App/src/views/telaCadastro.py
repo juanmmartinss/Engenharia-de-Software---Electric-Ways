@@ -96,7 +96,7 @@ body = Container(
                     alignment = MainAxisAlignment.START,
                     
                 ),
-                margin = margin.only(left = 65, top = 10)
+                margin = margin.only(left = 30, top = 10)
             ),
         
 
