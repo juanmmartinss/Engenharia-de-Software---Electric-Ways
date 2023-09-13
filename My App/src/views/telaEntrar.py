@@ -34,25 +34,38 @@ body = Container(
 
         Column([
 
+            Container(
+                TextField(label = "Email", 
+                        bgcolor = colors.WHITE, 
+                        border_color = colors.WHITE, 
+                        border_width = 15,
+                        border_radius = 20,
+                        width = 400),
+                alignment = alignment.center
 
-            TextField(label = "Email", 
-                      bgcolor = colors.WHITE, 
-                      border_color = colors.WHITE, 
-                      border_width = 15),
+            ),
 
-            TextField(label = "Senha",
-                      bgcolor = colors.WHITE,
-                      border_color = colors.WHITE, 
-                      border_width = 15),
+            Container(
+                TextField(label = "Senha",
+                        bgcolor = colors.WHITE,
+                        border_color = colors.WHITE, 
+                        border_width = 15,
+                        password = True,
+                        can_reveal_password = True,
+                        border_radius = 20,
+                        width = 400),
+                alignment = alignment.center        
+            
+            ),
 
             Container(
                 TextButton(
                     content = Container(
                     Text(value = "Esqueceu a senha?", size = 15, color = colors.WHITE)
                     )
-                )
+                ),
+                margin = margin.only(left = 35)
             ),
-
 
 
             Container(
