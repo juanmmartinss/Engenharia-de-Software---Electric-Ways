@@ -26,7 +26,7 @@ def main(page: Page):
 
 
     logo = Image(
-        src = "assets/elecLogo.png",
+        src = "elecLogo.png",
         height = 200,
         width = 200,
         fit = ImageFit.CONTAIN,
@@ -42,4 +42,4 @@ def main(page: Page):
     page.update()
 
         
-app(target=main)
+app(target=main, assets_dir="assets")
