@@ -1,46 +1,92 @@
 from flet import *
+import flet as ft
+# class MenuDetail(UserControl):
+#     def  build(self):
+#         return self.menu
 
-def main(page: Page):
+# def create_button(text, color):
 
-    colorBackground = '#00001E'
-    
-    botaoPadrao = ButtonStyle(
+colorBackground = '#00001E'
+colorBackground2 = '#1e19a8'
+
+botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 20}, #Tamanho
+        padding = {MaterialState.DEFAULT: 25}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
-        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=1)}
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
         
     )
 
 
-    botaoEntrar = ElevatedButton("Entrar", 
-                                style = botaoPadrao,
-                                )
+body = Container(
     
+    Column([
+        # MenuDetail(),
+        Container(
+            Image(
+                src = "logomudado.png",
+                scale=0.7,
+                height = 350,
+            )
+        ), 
 
-    botaoCadastrar = ElevatedButton(text = 'Cadastrar',
-                                    style = botaoPadrao,
-                                    )
+        Column([
+
+            Container(
+                ElevatedButton(
+                    content = Container(
+                        Text(value = "    Entrar     ", size = 35),
+                        ),
+                        style = botaoPadrao,
+                    ),
+
+                alignment = alignment.center
+            ),
+
+            Container(
+                ElevatedButton(
+                    content = Container(
+                        Text(value = "  Cadastrar  ", size = 35),
+                    ),
+                    style = botaoPadrao
+                ),
+
+                alignment = alignment.center
+            )
 
 
-    logo = Image(
-        src = "logomudado.png",
-        height = 200,
-        width = 200,
-        fit = ImageFit.CONTAIN,
+
+        ])
+    ]),
+    
+    gradient= LinearGradient(
+        begin=alignment.top_left,
+        end=alignment.bottom_right,
+        colors=[colorBackground, colorBackground2],
+    ), 
+    
+    width=500,
+    height=800,
+)
+
+
+def main(page: Page):
+
+    page.window_max_height = 800
+    page.window_width = 500
+    page. window_max_width = 500
+    page.window_height = 800
+    
+    page.padding = 0
+    
+    page.add(
+        body
     )
-
-
-
-    page.add(logo) 
     
-    page.add(botaoEntrar, botaoCadastrar)
+    #butto
     
-    page.bgcolor = colorBackground
-
-    page.update()
 
         
 app(target=main, assets_dir="assets")
