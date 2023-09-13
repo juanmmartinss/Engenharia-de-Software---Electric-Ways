@@ -12,7 +12,7 @@ colorBackground2 = '#1e19a8'
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 25}, #Tamanho
+        padding = {MaterialState.DEFAULT: 6}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
@@ -26,10 +26,11 @@ body = Container(
         # MenuDetail(),
         Container(
             Image(
-                src = "logomudado.png",
-                scale=0.5,
-                height = 250,
-            )
+                src = "https://i.ibb.co/VtsLycp/logo-without-bg.png",
+                scale=0.8,
+                height = 300,
+            ),
+            margin = margin.only(top = 30)
         ), 
 
         Column([
@@ -73,7 +74,7 @@ body = Container(
             Container(
                 ElevatedButton(
                     content = Container(
-                        Text(value = "    Entrar     ", size = 35),
+                        Text(value = "    Entrar     ", size = 30),
                         ),
                         style = botaoPadrao,
                     ),
@@ -98,10 +99,10 @@ body = Container(
 
 def main(page: Page):
 
-    page.window_max_height = 800
+    page.window_max_height = 900
     page.window_width = 500
     page. window_max_width = 500
-    page.window_height = 800
+    page.window_height = 900
     
     page.padding = 0
     
