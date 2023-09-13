@@ -1,6 +1,31 @@
 from flet import *
+# class MenuDetail(UserControl):
+#     def  build(self):
+#         return self.menu
+
 
 body = Container(
+    
+    Column([
+        # MenuDetail(),
+        Container(
+            Image(
+                src = "logomudado.png",
+                scale=0.8,
+                #abaixar a imagem
+                height = 400,
+            )
+        ), 
+        Row([
+            #BOTAO ENTRAR
+            Container(
+                
+                
+                #CreateButton("Entrar", )
+            ),
+
+        ])
+    ]),
     
     gradient= LinearGradient(
         begin=alignment.top_left,
@@ -24,5 +49,7 @@ def main(page: Page):
     page.add(
         body
     )
+    
+
         
 app(target=main, assets_dir="assets")

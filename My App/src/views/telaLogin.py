@@ -17,7 +17,7 @@ def main(page: Page):
 
     botaoEntrar = ElevatedButton("Entrar", 
                                 style = botaoPadrao,
-                                ), 
+                                )
     
 
     botaoCadastrar = ElevatedButton(text = 'Cadastrar',
@@ -26,7 +26,7 @@ def main(page: Page):
 
 
     logo = Image(
-        src = "logo.jfif",
+        src = "logomudado.png",
         height = 200,
         width = 200,
         fit = ImageFit.CONTAIN,
