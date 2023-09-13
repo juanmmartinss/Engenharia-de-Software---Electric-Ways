@@ -1,6 +1,5 @@
 from flet import *
 
-
 def main(page: Page):
 
     colorBackground = '#00001E'
@@ -12,16 +11,17 @@ def main(page: Page):
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=1)}
+        
     )
 
 
     botaoEntrar = ElevatedButton("Entrar", 
-                                 style = botaoPadrao
-                                 )
+                                style = botaoPadrao,
+                                ), 
     
 
     botaoCadastrar = ElevatedButton(text = 'Cadastrar',
-                                    style = botaoPadrao
+                                    style = botaoPadrao,
                                     )
 
 
@@ -31,6 +31,7 @@ def main(page: Page):
         width = 200,
         fit = ImageFit.CONTAIN,
     )
+
 
 
     page.add(logo) 
