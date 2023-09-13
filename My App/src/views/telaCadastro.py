@@ -12,7 +12,7 @@ colorBackground2 = '#1e19a8'
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 25}, #Tamanho
+        padding = {MaterialState.DEFAULT: 6}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
@@ -26,10 +26,11 @@ body = Container(
         # MenuDetail(),
         Container(
             Image(
-                src = "logomudado.png",
-                scale=0.5,
-                height = 250,
-            )
+                src = "https://i.ibb.co/VtsLycp/logo-without-bg.png",
+                scale=0.8,
+                height = 300,
+            ),
+            margin = margin.only(top = 30)
         ), 
 
         Column([
@@ -39,9 +40,23 @@ body = Container(
                         bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
                         border_width = 1,
-                        prefix_icon = "person_rounded",
+                        prefix_icon = "person_outline_rounded",
                         border_radius = 20,
-                        width = 320),
+                        width = 320,
+                        text_size= 9),
+                alignment = alignment.center
+
+            ),
+            
+            Container(
+                TextField(label = "E-mail", 
+                        bgcolor = colors.TRANSPARENT, 
+                        border_color = colors.WHITE, 
+                        border_width = 1,
+                        prefix_icon = "mail_outline_rounded",
+                        border_radius = 20,
+                        width = 320,
+                        text_size= 9),
                 alignment = alignment.center
 
             ),
@@ -52,10 +67,11 @@ body = Container(
                         border_color = colors.WHITE, 
                         border_width = 1,
                         password = True,
-                        prefix_icon = "lock_rounded",
+                        prefix_icon = "lock_outline_rounded",
                         can_reveal_password = True,
                         border_radius = 20,
-                        width = 320),
+                        width = 320,
+                        text_size= 9),
                 alignment = alignment.center        
             
             ),
@@ -66,10 +82,11 @@ body = Container(
                         border_color = colors.WHITE, 
                         border_width = 1,
                         password = True,
-                        prefix_icon = "lock_rounded",
+                        prefix_icon = "lock_outline_rounded",
                         can_reveal_password = True,
                         border_radius = 20,
-                        width = 320),
+                        width = 320,
+                        text_size= 9),
                 alignment = alignment.center        
             
             ),
@@ -79,13 +96,13 @@ body = Container(
                         
                     Checkbox(),
 
-                    Text("Eu li e aceito os", size = 15, color = colors.WHITE),
+                    Text("Eu li e aceito os", size = 14, color = colors.WHITE),
 
 
                     Container(
                         TextButton(
                             content = Container(
-                            Text(value = "Termos e Condições", size = 15, color = colors.WHITE)
+                            Text(value = "Termos e Condições", size = 14, color = colors.WHITE)
                             )
                         ),
                     ),
@@ -104,14 +121,27 @@ body = Container(
             Container(
                 ElevatedButton(
                     content = Container(
-                        Text(value = "  Cadastrar  ", size = 35),
+                        Text(value = "  Cadastrar  ", size = 30),
                         ),
                         style = botaoPadrao,
                     ),
 
                 alignment = alignment.center,
-                margin = margin.only(top = 70)
+                margin = margin.only(top = 10)
+            ),
+            
+            Container(
+                TextButton(
+                    content = Container(
+                    Text(value = "Entrar", 
+                         size = 20, 
+                         style = ButtonStyle('underline'),
+                         color = colors.WHITE)
+                    )
+                ),
+                alignment = alignment.center
             )
+
 
         ])
     ]),

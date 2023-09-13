@@ -40,9 +40,10 @@ body = Container(
                         bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
                         border_width = 1,
-                        prefix_icon = "person_rounded",
+                        prefix_icon = "person_outline_rounded",
                         border_radius = 20,
-                        width = 320),
+                        width = 320,
+                        text_size= 9),
                 alignment = alignment.center
 
             ),
@@ -54,9 +55,10 @@ body = Container(
                         border_width = 1,
                         password = True,
                         can_reveal_password = True,
-                        prefix_icon = "lock_rounded",
+                        prefix_icon = "lock_outline_rounded",
                         border_radius = 20,
-                        width = 320),
+                        width = 320,
+                        text_size= 9),
                 alignment = alignment.center        
             
             ),
@@ -64,7 +66,7 @@ body = Container(
             Container(
                 TextButton(
                     content = Container(
-                    Text(value = "Esqueceu a senha?", size = 15, color = colors.WHITE)
+                    Text(value = "Esqueceu a senha?", size = 14, color = colors.WHITE)
                     )
                 ),
                 margin = margin.only(left = 30)
@@ -81,6 +83,15 @@ body = Container(
 
                 alignment = alignment.center,
                 margin = margin.only(top = 70)
+            ),
+            
+            Container(
+                TextButton(
+                    content = Container(
+                    Text(value = "Cadastre-se", size = 20, color = colors.WHITE)
+                    )
+                ),
+                alignment = alignment.center
             )
 
         ])
