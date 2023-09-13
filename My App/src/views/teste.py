@@ -6,6 +6,19 @@ import flet as ft
 
 # def create_button(text, color):
 
+colorBackground = '#00001E'
+colorBackground2 = '#1e19a8'
+
+botaoPadrao = ButtonStyle(
+        color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
+        bgcolor = colorBackground, 
+        padding = {MaterialState.DEFAULT: 40}, #Tamanho
+        overlay_color = colors.BLUE_200, #Cor quando seleciona
+        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
+        
+    )
+
 
 body = Container(
     
@@ -15,15 +28,21 @@ body = Container(
             Image(
                 src = "logomudado.png",
                 scale=0.8,
-                #abaixar a imagem
                 height = 400,
             )
         ), 
-        Row([
+        Column([
             #BOTAO ENTRAR
-            Container(
-                
-            ),
+
+
+            ElevatedButton("Entrar", 
+                            style = botaoPadrao,
+                            ),
+            
+            ElevatedButton(text ="Cadastrar",
+                                style = botaoPadrao,
+            )
+
 
         ])
     ]),
@@ -31,7 +50,7 @@ body = Container(
     gradient= LinearGradient(
         begin=alignment.top_left,
         end=alignment.bottom_right,
-        colors=['#00001E', '#1e19a8'],
+        colors=[colorBackground, colorBackground2],
     ), 
     
     width=500,
