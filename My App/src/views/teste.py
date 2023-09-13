@@ -1,7 +1,10 @@
 from flet import *
+import flet as ft
 # class MenuDetail(UserControl):
 #     def  build(self):
 #         return self.menu
+
+# def create_button(text, color):
 
 
 body = Container(
@@ -20,8 +23,6 @@ body = Container(
             #BOTAO ENTRAR
             Container(
                 
-                
-                #CreateButton("Entrar", )
             ),
 
         ])
@@ -37,6 +38,7 @@ body = Container(
     height=800,
 )
 
+
 def main(page: Page):
 
     page.window_max_height = 800
@@ -49,6 +51,8 @@ def main(page: Page):
     page.add(
         body
     )
+    
+    #butto
     
 
         
