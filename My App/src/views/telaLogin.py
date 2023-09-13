@@ -50,11 +50,14 @@ def main(page: Page):
 
     page.add(logo)  # Add the logo image to the page
     
-    #page.add(background)
 
 
     page.add(botaoEntrar, botaoCadastrar, t)
     #page.add(background)
+    
+    page.bgcolor = colorBackground
+
+    page.update()
 
         
 
