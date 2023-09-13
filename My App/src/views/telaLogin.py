@@ -3,7 +3,7 @@ from flet import *
 
 def main(page: Page):
 
-    colorBackground = '#020c2b'
+    colorBackground = '#00001E'
     
     botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
@@ -27,8 +27,8 @@ def main(page: Page):
 
     logo = Image(
         src = "assets/elecLogo.png",
-        height = 400,
-        width = 300,
+        height = 200,
+        width = 200,
         fit = ImageFit.CONTAIN,
     )
 
