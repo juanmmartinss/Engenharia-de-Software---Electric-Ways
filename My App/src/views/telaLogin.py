@@ -4,12 +4,14 @@ from flet import *
 def main(page: Page):
 
     colorBackground = '#020c2b'
-
+    
     background = Container(
-        bgcolor = colorBackground,
-        width = 500,
-        height = 900
-        )
+        bgcolor=colorBackground,
+        width=400,
+        height=1900
+    )
+    
+    
 
     def clicouEntrar(e):
         t.value = f"Entrando"
@@ -35,10 +37,24 @@ def main(page: Page):
                                     )
 
     t = Text()
+    
+    #colorBackground = '#020c2b'
+
+    logo = Image(
+        src="assets/elecLogo.png",
+        height=400,
+        width=300,
+        fit=ImageFit.CONTAIN,
+    )
+
+
+    page.add(logo)  # Add the logo image to the page
+    
+    #page.add(background)
 
 
     page.add(botaoEntrar, botaoCadastrar, t)
-    page.add(background)
+    #page.add(background)
 
         
 
