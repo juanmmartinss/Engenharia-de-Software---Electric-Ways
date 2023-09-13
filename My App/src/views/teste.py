@@ -12,7 +12,7 @@ colorBackground2 = '#1e19a8'
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 40}, #Tamanho
+        padding = {MaterialState.DEFAULT: 20}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
@@ -35,12 +35,18 @@ body = Container(
             #BOTAO ENTRAR
 
 
-            ElevatedButton("Entrar", 
-                            style = botaoPadrao,
-                            ),
+            ElevatedButton(
+                content = Container(
+                    Text(value = "  Entrar   ", size = 25),
+                    ),
+                    style = botaoPadrao,
+                ),
             
-            ElevatedButton(text ="Cadastrar",
-                                style = botaoPadrao,
+            ElevatedButton(
+                content = Container(
+                    Text(value = "Cadastrar", size = 25),
+                ),
+                style = botaoPadrao
             )
 
 
