@@ -35,12 +35,13 @@ body = Container(
         Column([
 
             Container(
-                TextField(label = "Email", 
+                TextField(label = "Usuário", 
                         bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
                         border_width = 1,
+                        prefix_icon = "person_rounded",
                         border_radius = 20,
-                        width = 400),
+                        width = 320),
                 alignment = alignment.center
 
             ),
@@ -51,9 +52,10 @@ body = Container(
                         border_color = colors.WHITE, 
                         border_width = 1,
                         password = True,
+                        prefix_icon = "lock_rounded",
                         can_reveal_password = True,
                         border_radius = 20,
-                        width = 400),
+                        width = 320),
                 alignment = alignment.center        
             
             ),
@@ -64,32 +66,39 @@ body = Container(
                         border_color = colors.WHITE, 
                         border_width = 1,
                         password = True,
+                        prefix_icon = "lock_rounded",
                         can_reveal_password = True,
                         border_radius = 20,
-                        width = 400),
+                        width = 320),
                 alignment = alignment.center        
             
             ),
+            Container(
+                Row(
+                    [
+                        
+                    Checkbox(),
 
-            Row(
-                [
-
-                Text("Eu li e aceito os", size = 15, color = colors.WHITE),
+                    Text("Eu li e aceito os", size = 15, color = colors.WHITE),
 
 
-                Container(
-                    TextButton(
-                        content = Container(
-                        Text(value = "Termos e Condições", size = 15, color = colors.WHITE)
-                        )
+                    Container(
+                        TextButton(
+                            content = Container(
+                            Text(value = "Termos e Condições", size = 15, color = colors.WHITE)
+                            )
+                        ),
                     ),
+
+
+                    ],
+                    spacing = 0, 
+                    alignment = MainAxisAlignment.START,
+                    
                 ),
-
-
-                ],
-                spacing = 0, 
-                alignment = MainAxisAlignment.CENTER
+                margin = margin.only(left = 65, top = 10)
             ),
+        
 
 
             Container(

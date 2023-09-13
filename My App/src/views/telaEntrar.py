@@ -35,12 +35,13 @@ body = Container(
         Column([
 
             Container(
-                TextField(label = "Email", 
+                TextField(label = "Usuário", 
                         bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
                         border_width = 1,
+                        prefix_icon = "person_rounded",
                         border_radius = 20,
-                        width = 400),
+                        width = 320),
                 alignment = alignment.center
 
             ),
@@ -52,8 +53,9 @@ body = Container(
                         border_width = 1,
                         password = True,
                         can_reveal_password = True,
+                        prefix_icon = "lock_rounded",
                         border_radius = 20,
-                        width = 400),
+                        width = 320),
                 alignment = alignment.center        
             
             ),
