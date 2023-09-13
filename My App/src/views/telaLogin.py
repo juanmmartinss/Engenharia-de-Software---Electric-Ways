@@ -1,5 +1,4 @@
 from flet import *
-import cv2 as cv
 
 
 def main(page: Page):
@@ -11,27 +10,36 @@ def main(page: Page):
         width = 500,
         height = 900
         )
+
+    def clicouEntrar(e):
+        t.value = f"Entrando"
+        page.update()
+
+    botaoPadrao = ButtonStyle(
+        color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
+        bgcolor = colorBackground, 
+        padding = {MaterialState.DEFAULT: 20}, #Tamanho
+        overlay_color = colors.BLUE_200, #Cor quando seleciona
+        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=1)}
+    )
+
+
+    botaoEntrar = ElevatedButton("Entrar", 
+                                 style = botaoPadrao
+                                 )
     
+
+    botaoCadastrar = ElevatedButton(text = 'Cadastrar',
+                                    style = botaoPadrao
+                                    )
+
+    t = Text()
+
+
+    page.add(botaoEntrar, botaoCadastrar, t)
     page.add(background)
 
-
-    logo = Image(
-        src = f"assets/elecLogo.png",
-        height=100,
-        fit = ImageFit.CONTAIN,
-    )
-
-    body = Container(
-        Column([
-            Container(
-                Image(src = 'assets/elecLogo.png')
-            )
-        ])
-    )
-
-    image = cv.imread('assets/elecLogo.png')
-    cv.imshow("imagem", image)
-
-    page.add(body)
+        
 
 app(target=main)
