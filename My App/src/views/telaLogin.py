@@ -26,7 +26,7 @@ def main(page: Page):
 
 
     logo = Image(
-        src = "elecLogo.png",
+        src = "logo.jfif",
         height = 200,
         width = 200,
         fit = ImageFit.CONTAIN,
