@@ -36,9 +36,9 @@ body = Container(
 
             Container(
                 TextField(label = "Email", 
-                        bgcolor = colors.WHITE, 
+                        bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
-                        border_width = 15,
+                        border_width = 1,
                         border_radius = 20,
                         width = 400),
                 alignment = alignment.center
@@ -47,9 +47,9 @@ body = Container(
 
             Container(
                 TextField(label = "Senha",
-                        bgcolor = colors.WHITE,
+                        bgcolor = colors.TRANSPARENT,
                         border_color = colors.WHITE, 
-                        border_width = 15,
+                        border_width = 1,
                         password = True,
                         can_reveal_password = True,
                         border_radius = 20,
