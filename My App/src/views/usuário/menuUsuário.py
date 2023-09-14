@@ -46,6 +46,7 @@ body = Container(
 
             alignment = alignment.center,
         ),
+<<<<<<< HEAD
 
         Container(
 
@@ -122,6 +123,9 @@ body = Container(
         ),
 
       ]
+=======
+    
+>>>>>>> 2082cd32f40b8dbe4dd26d0fa8631f9a3e45a393
     ),
     
     gradient= LinearGradient(
