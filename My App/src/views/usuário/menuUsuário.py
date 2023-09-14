@@ -11,10 +11,9 @@ colorBackground2 = '#1e19a8'
 
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
-        bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 6}, #Tamanho
+        bgcolor = colors.TRANSPARENT, 
+        padding = {MaterialState.DEFAULT: 30}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
-        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
         
     )
@@ -25,25 +24,104 @@ body = Container(
     Column(
         [
         # MenuDetail(),
+        
+        Container(
 
-        IconButton(
-            icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
-            icon_color = colors.WHITE,
-            icon_size = 40,
-            tooltip = "Voltar"
+            IconButton(
+                icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
+                icon_color = colors.WHITE,
+                icon_size = 40,
+                tooltip = "Voltar"
+            ),
+            margin = margin.only(top = 15)
         ),
 
         Container(
+
             CircleAvatar(
                 foreground_image_url = "https://ibb.co/kMyPWrS",
                 content = Text("VOCÊ"),
                 radius = 90,
-
             ),
+
             alignment = alignment.center,
         ),
-        
-    ]
+
+        Container(
+
+            Text(
+                "FULANO DE TAL",
+                color = colors.WHITE,
+                size = 23,
+                weight = FontWeight.BOLD,
+            ),
+
+            alignment = alignment.center,
+        ),
+
+        Container(
+
+            Text(
+                "email@email.com - 1 veículos",
+                color = colors.WHITE,
+                size = 16
+            
+            ),
+
+            alignment = alignment.center,
+        ),
+
+        Container(
+            Column([
+                ElevatedButton(
+
+                    text = "EDITAR PERFIL                  ",
+
+                    icon = "EDIT_ROUNDED",
+                    style = botaoPadrao,
+
+
+                ),
+
+                ElevatedButton(
+
+                    text = "MEUS VEÍCULOS               ",
+
+                    icon = "ELECTRIC_CAR_ROUNDED",
+                    style = botaoPadrao,
+
+
+                ),
+
+                ElevatedButton(
+
+                    text = "PREFERÊNCIAS DE ROTAS",
+
+                    icon = "CHECKLIST_ROUNDED",
+                    style = botaoPadrao,
+
+
+                ),
+
+
+                ElevatedButton(
+
+                    text = "SAIR                                  ",
+
+                    icon = "EXIT_TO_APP_ROUNDED",
+                    style = botaoPadrao,
+
+
+                ),
+
+
+            ]),
+
+
+            margin = margin.only(top = 35),
+        ),
+
+      ]
     ),
     
     gradient= LinearGradient(
