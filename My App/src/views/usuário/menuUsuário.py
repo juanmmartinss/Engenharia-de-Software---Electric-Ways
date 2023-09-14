@@ -39,7 +39,7 @@ body = Container(
         Container(
 
             CircleAvatar(
-                foreground_image_url = "https://ibb.co/kMyPWrS",
+                foreground_image_url = "https://i.ibb.co/mSBPMYc/avatar.png",
                 content = Text("VOCÊ"),
                 radius = 90,
             ),
@@ -75,7 +75,7 @@ body = Container(
             Column([
                 ElevatedButton(
 
-                    text = "EDITAR PERFIL                  ",
+                    text = "EDITAR PERFIL                         ",
 
                     icon = "EDIT_ROUNDED",
                     style = botaoPadrao,
@@ -85,7 +85,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "MEUS VEÍCULOS               ",
+                    text = "MEUS VEÍCULOS                      ",
 
                     icon = "ELECTRIC_CAR_ROUNDED",
                     style = botaoPadrao,
@@ -95,7 +95,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "PREFERÊNCIAS DE ROTAS",
+                    text = "PREFERÊNCIAS DE ROTAS    ",
 
                     icon = "CHECKLIST_ROUNDED",
                     style = botaoPadrao,
@@ -106,7 +106,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "SAIR                                  ",
+                    text = "SAIR                                              ",
 
                     icon = "EXIT_TO_APP_ROUNDED",
                     style = botaoPadrao,
@@ -118,7 +118,9 @@ body = Container(
             ]),
 
 
-            margin = margin.only(top = 35),
+            margin = margin.symmetric(vertical = 40),
+            alignment= alignment.center,
+        
         ),
 
       ]
