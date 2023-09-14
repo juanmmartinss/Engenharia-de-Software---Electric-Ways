@@ -75,7 +75,7 @@ body = Container(
             Column([
                 ElevatedButton(
 
-                    text = "EDITAR PERFIL                         ",
+                    text = "EDITAR PERFIL                                                   ",
 
                     icon = "EDIT_ROUNDED",
                     style = botaoPadrao,
@@ -85,7 +85,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "MEUS VEÍCULOS                      ",
+                    text = "MEUS VEÍCULOS                                                ",
 
                     icon = "ELECTRIC_CAR_ROUNDED",
                     style = botaoPadrao,
@@ -95,7 +95,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "PREFERÊNCIAS DE ROTAS    ",
+                    text = "PREFERÊNCIAS DE ROTAS                              ",
 
                     icon = "CHECKLIST_ROUNDED",
                     style = botaoPadrao,
@@ -106,7 +106,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "SAIR                                              ",
+                    text = "SAIR                                                                        ",
 
                     icon = "EXIT_TO_APP_ROUNDED",
                     style = botaoPadrao,
@@ -118,8 +118,8 @@ body = Container(
             ]),
 
 
-            margin = margin.symmetric(vertical = 40),
-            alignment= alignment.center,
+            margin = margin.symmetric(vertical = 30, horizontal = 40),
+            #alignment= alignment.center,
         
         ),
 
