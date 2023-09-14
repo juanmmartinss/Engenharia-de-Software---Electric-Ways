@@ -15,6 +15,8 @@ botaoPadrao = ButtonStyle(
         padding = {MaterialState.DEFAULT: 30}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
+        #padding = {MaterialState.DEFAULT: R},
+        #comprimento
         
     )
 
