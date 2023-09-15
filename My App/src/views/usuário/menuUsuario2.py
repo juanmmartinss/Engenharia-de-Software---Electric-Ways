@@ -25,7 +25,56 @@ botaoPadrao = ButtonStyle(
 
 botoes = Container(
     
-    Column([
+    Column(
+        [
+        # MenuDetail(),
+        
+        Container(
+
+            IconButton(
+                icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
+                icon_color = colors.WHITE,
+                icon_size = 40,
+                tooltip = "Voltar"
+            ),
+            margin = margin.only(top = 15)
+        ),
+
+        Container(
+
+            CircleAvatar(
+                foreground_image_url = "https://i.ibb.co/mSBPMYc/avatar.png",
+                content = Text("VOCÊ"),
+                radius = 90,
+            ),
+
+            alignment = alignment.center,
+        ),
+
+                Container(
+
+            Text(
+                "FULANO DE TAL",
+                color = colors.WHITE,
+                size = 23,
+                weight = FontWeight.BOLD,
+            ),
+
+            alignment = alignment.center,
+        ),
+
+        Container(
+
+            Text(
+                "email@email.com - 1 veículos",
+                color = colors.WHITE,
+                size = 16
+            
+            ),
+
+            alignment = alignment.center,
+        ),
+
         Container(
             Column([
                 
@@ -85,84 +134,26 @@ botoes = Container(
 
       ]
 
-
     ),
-
-    bgcolor = colorBackgroundBaixo
-
-)
-
-fundo = Container(
-
-        Column(
-        [
-        # MenuDetail(),
-        
-        Container(
-
-            IconButton(
-                icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
-                icon_color = colors.WHITE,
-                icon_size = 40,
-                tooltip = "Voltar"
-            ),
-            margin = margin.only(top = 15)
-        ),
-
-        Container(
-
-            CircleAvatar(
-                foreground_image_url = "https://i.ibb.co/mSBPMYc/avatar.png",
-                content = Text("VOCÊ"),
-                radius = 90,
-            ),
-
-            alignment = alignment.center,
-        ),
-
-                Container(
-
-            Text(
-                "FULANO DE TAL",
-                color = colors.WHITE,
-                size = 23,
-                weight = FontWeight.BOLD,
-            ),
-
-            alignment = alignment.center,
-        ),
-
-        Container(
-
-            Text(
-                "email@email.com - 1 veículos",
-                color = colors.WHITE,
-                size = 16
-            
-            ),
-
-            alignment = alignment.center,
-        ),
-    ]),
 
     gradient= LinearGradient(
         begin=alignment.top_left,
-        end=alignment.bottom_right,
-        colors=[colorBackground, colorBackground2],
+        end=alignment.bottom_left,
+        colors=[colorBackground2, colorBackgroundBaixo],
+        tile_mode = GradientTileMode.MIRROR
 
     ), 
     
     width=500,
-    height=350,
+    height=800,
 
-    
 )
 
 
+
+
 def main(page: Page):
-
-    page.bgcolor = colorBackgroundBaixo
-
+    
     page.window_max_height = 800
     page.window_width = 500
     page. window_max_width = 500
@@ -171,7 +162,6 @@ def main(page: Page):
     page.padding = 0
     
     page.add(
-        fundo,
         botoes,
     )
     
