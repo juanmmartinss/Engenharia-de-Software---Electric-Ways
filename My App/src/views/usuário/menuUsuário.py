@@ -16,12 +16,13 @@ botaoPadrao = ButtonStyle(
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
         #padding = {MaterialState.DEFAULT: R},
+        #padding = padding.symmetric(horizontal = 10),
         #comprimento
         
     )
 
 
-body = Container(
+botoes = Container(
     
     Column(
         [
@@ -75,9 +76,10 @@ body = Container(
 
         Container(
             Column([
+                
                 ElevatedButton(
 
-                    text = "EDITAR PERFIL                                                   ",
+                    text = "EDITAR PERFIL",
 
                     icon = "EDIT_ROUNDED",
                     style = botaoPadrao,
@@ -87,7 +89,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "MEUS VEÍCULOS                                                ",
+                    text = "MEUS VEÍCULOS",
 
                     icon = "ELECTRIC_CAR_ROUNDED",
                     style = botaoPadrao,
@@ -97,7 +99,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "PREFERÊNCIAS DE ROTAS                              ",
+                    text = "PREFERÊNCIAS DE ROTAS",
 
                     icon = "CHECKLIST_ROUNDED",
                     style = botaoPadrao,
@@ -108,7 +110,7 @@ body = Container(
 
                 ElevatedButton(
 
-                    text = "SAIR                                                                        ",
+                    text = "SAIR",
 
                     icon = "EXIT_TO_APP_ROUNDED",
                     style = botaoPadrao,
@@ -117,11 +119,15 @@ body = Container(
                 ),
 
 
-            ]),
+            ], 
+                   horizontal_alignment = CrossAxisAlignment.STRETCH,
+                   
+                ),
 
 
             margin = margin.symmetric(vertical = 30, horizontal = 40),
             #alignment= alignment.center,
+            #padding = padding.symmetric(horizontal = 10)
         
         ),
 
@@ -129,7 +135,10 @@ body = Container(
 
 
     ),
-    
+
+)
+
+fundo = Container(
     gradient= LinearGradient(
         begin=alignment.top_left,
         end=alignment.bottom_right,
@@ -137,11 +146,14 @@ body = Container(
     ), 
     
     width=500,
-    height=800,
+    height=350,
+    
 )
 
 
 def main(page: Page):
+    
+    page.bgcolor = colors.WHITE
 
     page.window_max_height = 800
     page.window_width = 500
@@ -151,7 +163,8 @@ def main(page: Page):
     page.padding = 0
     
     page.add(
-        body
+        botoes,
+        fundo
     )
     
         
