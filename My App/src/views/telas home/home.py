@@ -1,4 +1,5 @@
 from flet import *
+import flet as ft
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
@@ -15,13 +16,36 @@ infoButton = Container(
     alignment = alignment.top_right
 )
 
+searchBar = Container(
+    Column([
+        ft.ElevatedButton(
+            width = 300,
+            height = 50,
+            content = ft.Row(
+                [
+                    ft.Icon(name = icons.SEARCH_ROUNDED, color = colorBackground),
+                    ft.Text("PESQUISAR", color = colorBackground),
+                ],
+
+                alignment = alignment.center,
+            ),
+            # bgcolor = colorBackground2,
+        ),
+        
+        ],
+        #alignment = ft.MainAxisAlignment.CENTER, 
+           
+    ),
+)
+
 def main(page: Page):
+    
+    page.theme_mode = ThemeMode.LIGHT
 
     page.window_max_height = 800
     page.window_width = 500
     page. window_max_width = 500
     page.window_height = 800
-
 
     page.navigation_bar = NavigationBar(
         destinations=[
@@ -51,8 +75,11 @@ def main(page: Page):
         bgcolor = colorBackground3,
     )
 
-    page.add(infoButton)
-
-
+    page.add(
+        Row([
+            searchBar,
+            infoButton,
+        ], vertical_alignment = CrossAxisAlignment.STRETCH),
+    )
 
 app(target=main)
