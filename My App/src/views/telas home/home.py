@@ -1,5 +1,4 @@
 from flet import *
-import flet as ft
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
@@ -18,13 +17,13 @@ infoButton = Container(
 
 searchBar = Container(
     Column([
-        ft.ElevatedButton(
+        ElevatedButton(
             #width = 350,
             #height = 50,
-            content = ft.Row(
+            content = Row(
                 [
-                    ft.Icon(name = icons.SEARCH_ROUNDED, color = colorBackground),
-                    ft.Text("PESQUISAR", color = colorBackground),
+                    Icon(name = icons.SEARCH_ROUNDED, color = colorBackground),
+                    Text("PESQUISAR", color = colorBackground),
                 ],
 
                 alignment = alignment.center,
