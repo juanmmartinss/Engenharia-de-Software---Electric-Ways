@@ -57,7 +57,16 @@ cur.execute(
     '''CREATE TABLE PONTO_CARREG (
         id INTEGER NOT NULL PRIMARY KEY,
         lat REAL NOT NULL,
-        long REAL NOT NULL
+        long REAL NOT NULL,
+        uso_publico INTEGER,
+        tipo_conexoes TEXT,
+        num_conexoes INTEGER,
+        potencia REAL,
+        amperagem REAL,
+        voltagem REAL,
+        info_uso TEXT,
+        info_custo TEXT,
+        url TEXT
     );''')
 
 cur.execute(
