@@ -30,11 +30,12 @@ searchBar = Container(
             ),
             # bgcolor = colorBackground2,
         ),
-        
+
         ],
         #alignment = ft.MainAxisAlignment.CENTER, 
            
     ),
+    margin = margin.only(top = 30)
 )
 
 def main(page: Page):
