@@ -6,7 +6,7 @@ import flet as ft
 
 # def create_button(text, color):
 
-colorBackground = '#00001E'
+colorBackground = '#0F0F1E'
 colorBackground2 = '#1e19a8'
 colorBackgroundBaixo = '#F0F0FF'
 
@@ -139,7 +139,7 @@ botoes = Container(
     gradient= LinearGradient(
         begin=alignment.top_left,
         end=alignment.bottom_left,
-        colors=[colorBackground2, colorBackgroundBaixo],
+        colors=[colorBackground, colorBackgroundBaixo],
         tile_mode = GradientTileMode.MIRROR
 
     ), 
@@ -148,8 +148,6 @@ botoes = Container(
     height=800,
 
 )
-
-
 
 
 def main(page: Page):
