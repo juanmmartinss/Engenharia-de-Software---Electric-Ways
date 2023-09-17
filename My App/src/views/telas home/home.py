@@ -19,7 +19,7 @@ infoButton = Container(
 searchBar = Container(
     Column([
         ft.ElevatedButton(
-            width = 300,
+            width = 370,
             height = 50,
             content = ft.Row(
                 [
@@ -79,7 +79,7 @@ def main(page: Page):
         Row([
             searchBar,
             infoButton,
-        ], vertical_alignment = CrossAxisAlignment.STRETCH),
+        ]),
     )
 
 app(target=main)
