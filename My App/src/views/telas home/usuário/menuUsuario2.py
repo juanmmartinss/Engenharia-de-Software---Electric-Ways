@@ -80,43 +80,58 @@ botoes = Container(
                 
                 ElevatedButton(
 
-                    text = "EDITAR PERFIL",
+                    content = Row(
+                        [
+                            Icon(name = icons.EDIT_ROUNDED, color = colors.WHITE),
+                            Text("EDITAR PERFIL", color = colors.WHITE),
+                        ],
 
-                    icon = "EDIT_ROUNDED",
+                    ),
+
                     style = botaoPadrao,
 
+                ),
+
+                ElevatedButton(
+                    
+                    content = Row(
+                        [
+                            Icon(name = icons.ELECTRIC_CAR_ROUNDED, color = colors.WHITE),
+                            Text("MEUS VEÍCULOS", color = colors.WHITE),
+                        ],
+
+                    ),
+
+                    style = botaoPadrao,                    
 
                 ),
 
                 ElevatedButton(
 
-                    text = "MEUS VEÍCULOS",
+                    content = Row(
+                        [
+                            Icon(name = icons.CHECKLIST_ROUNDED, color = colors.WHITE),
+                            Text("PREFERÊNCIAS DE ROTAS", color = colors.WHITE),
+                        ],
 
-                    icon = "ELECTRIC_CAR_ROUNDED",
+                    ),                    
+
                     style = botaoPadrao,
-
-
-                ),
-
-                ElevatedButton(
-
-                    text = "PREFERÊNCIAS DE ROTAS",
-
-                    icon = "CHECKLIST_ROUNDED",
-                    style = botaoPadrao,
-
 
                 ),
 
 
                 ElevatedButton(
 
-                    text = "SAIR",
+                    content = Row(
+                        [
+                            Icon(name = icons.EXIT_TO_APP_ROUNDED, color = colors.WHITE),
+                            Text("SAIR", color = colors.WHITE),
+                        ],
 
-                    icon = "EXIT_TO_APP_ROUNDED",
+                    ),                       
+
                     style = botaoPadrao,
-
-
                 ),
 
 
