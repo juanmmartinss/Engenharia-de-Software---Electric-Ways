@@ -4,9 +4,16 @@ colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 colorBackground3 = '#F0F0FF'
 
-searchButton = OutlinedButton (
-            content = Icon(name = icons.SEARCH_ROUNDED)
-              )
+infoButton = Container(
+    IconButton(
+        icon = icons.INFO_ROUNDED,
+        icon_color = colorBackground,
+        icon_size = 40,
+        tooltip = "Ajuda e Informações"
+    ),
+
+    alignment = alignment.top_right
+)
 
 def main(page: Page):
 
@@ -38,12 +45,14 @@ def main(page: Page):
                 icon = icons.SETTINGS_ROUNDED,
                 label = "Configurações",
             ),
+
         ],
 
         bgcolor = colorBackground3,
     )
 
-    page.add(searchButton)
+    page.add(infoButton)
+
 
 
 app(target=main)
