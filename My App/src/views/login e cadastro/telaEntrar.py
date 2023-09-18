@@ -103,16 +103,16 @@ body = Container(
     ), 
     
     width=500,
-    height=900,
+    height=800,
 )
 
 
 def main(page: Page):
 
-    page.window_max_height = 900
+    page.window_max_height = 800
     page.window_width = 500
     page. window_max_width = 500
-    page.window_height = 900
+    page.window_height = 800
     
     page.padding = 0
     
