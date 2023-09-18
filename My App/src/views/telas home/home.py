@@ -19,7 +19,7 @@ searchBar = Container(
     Column([
         ElevatedButton(
             #width = 350,
-            #height = 50,
+            height = 50,
             content = Row(
                 [
                     Icon(name = icons.SEARCH_ROUNDED, color = colorBackground),
@@ -28,11 +28,9 @@ searchBar = Container(
 
                 alignment = alignment.center,
             ),
-            # bgcolor = colorBackground2,
         ),
 
         ],
-        #alignment = ft.MainAxisAlignment.CENTER, 
            
     ),
     margin = margin.only(top = 30)

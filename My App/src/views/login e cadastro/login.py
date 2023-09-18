@@ -1,4 +1,10 @@
 from flet import *
+import flet as ft
+# class MenuDetail(UserControl):
+#     def  build(self):
+#         return self.menu
+
+# def create_button(text, color):
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
@@ -6,7 +12,7 @@ colorBackground2 = '#1e19a8'
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 6}, #Tamanho
+        padding = {MaterialState.DEFAULT: 25}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
@@ -14,7 +20,13 @@ botaoPadrao = ButtonStyle(
     )
 
 
-body = Container(
+class Login(UserControl):
+  def __init__(self,page):
+    super().__init__()
+    self.page = page
+
+  def build(self):
+    return Container(
     
     Column([
         # MenuDetail(),
@@ -30,18 +42,15 @@ body = Container(
         Column([
 
             Container(
-                TextField(label = Text("Usuário"), 
+                TextField(label = "Usuário", 
                         bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
                         border_width = 1,
                         prefix_icon = "person_outline_rounded",
                         border_radius = 20,
                         width = 320,
-                        text_size= 15,
-                        color = colors.WHITE,
-                        
-                    ),
-                alignment = alignment.center,
+                        text_size= 9),
+                alignment = alignment.center
 
             ),
 
@@ -55,9 +64,7 @@ body = Container(
                         prefix_icon = "lock_outline_rounded",
                         border_radius = 20,
                         width = 320,
-                        text_size= 15,
-                        color = colors.WHITE
-                        ),
+                        text_size= 9),
                 alignment = alignment.center        
             
             ),
@@ -88,7 +95,8 @@ body = Container(
                 TextButton(
                     content = Container(
                     Text(value = "Cadastre-se", size = 20, color = colors.WHITE)
-                    )
+                    ),
+                    on_click = lambda _: self.page.go('/cadastro')
                 ),
                 alignment = alignment.center
             )
@@ -103,25 +111,5 @@ body = Container(
     ), 
     
     width=500,
-    height=900,
+    height=800,
 )
-
-
-def main(page: Page):
-
-    page.window_max_height = 900
-    page.window_width = 500
-    page. window_max_width = 500
-    page.window_height = 900
-    
-    page.padding = 0
-    
-    page.add(
-        body
-    )
-    
-    #butto
-    
-
-        
-app(target=main, assets_dir="assets")
