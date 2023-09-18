@@ -30,7 +30,7 @@ body = Container(
         Column([
 
             Container(
-                TextField(label = Text("Usuário"), 
+                TextField(label = "Usuário", 
                         bgcolor = colors.TRANSPARENT, 
                         border_color = colors.WHITE, 
                         border_width = 1,
