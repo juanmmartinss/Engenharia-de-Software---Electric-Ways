@@ -3,10 +3,10 @@ from views import views_handler
 
 def main(page: Page):
   
-  page.window_max_height = 600
+  page.window_max_height = 800
   page.window_width = 500
   page. window_max_width = 500
-  page.window_height = 600
+  page.window_height = 800
         
 
   def route_change(route):
