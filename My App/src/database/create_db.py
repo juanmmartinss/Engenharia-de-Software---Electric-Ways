@@ -17,11 +17,11 @@ cur.execute(
     '''CREATE TABLE MODELO_VEIC (
         id INTEGER NOT NULL PRIMARY KEY,
         nome TEXT NOT NULL,
-        range INTEGER,
-        effic INTEGER,
-        fast_charge INTEGER,
-        battery INTEGER,
-        year INTEGER
+        range REAL,
+        efic REAL,
+        fast_charge REAL,
+        bateria REAL,
+        ano INTEGER
     );''')
 
 cur.execute(
