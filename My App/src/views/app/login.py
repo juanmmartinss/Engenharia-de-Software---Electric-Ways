@@ -1,28 +1,31 @@
 from flet import *
 
+
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 6}, #Tamanho
+        padding = {MaterialState.DEFAULT: 25}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
         
     )
 
-
-body = Container(
+def telaLogin(self):
+  return Container(
     
     Column([
+        # MenuDetail(),
         Container(
             Image(
                 src = "https://i.ibb.co/VtsLycp/logo-without-bg.png",
                 scale=0.8,
                 height = 300,
             ),
+            margin = margin.only(top = 30)
         ), 
 
         Column([
@@ -35,11 +38,8 @@ body = Container(
                         prefix_icon = "person_outline_rounded",
                         border_radius = 20,
                         width = 320,
-                        text_size= 15,
-                        color = colors.WHITE,
-                        
-                    ),
-                alignment = alignment.center,
+                        text_size= 9),
+                alignment = alignment.center
 
             ),
 
@@ -53,9 +53,7 @@ body = Container(
                         prefix_icon = "lock_outline_rounded",
                         border_radius = 20,
                         width = 320,
-                        text_size= 15,
-                        color = colors.WHITE
-                        ),
+                        text_size= 9),
                 alignment = alignment.center        
             
             ),
@@ -79,14 +77,15 @@ body = Container(
                     ),
 
                 alignment = alignment.center,
-                padding = padding.only(top = 40),
+                margin = margin.only(top = 70)
             ),
             
             Container(
                 TextButton(
                     content = Container(
                     Text(value = "Cadastre-se", size = 20, color = colors.WHITE)
-                    )
+                    ),
+                    on_click = lambda _: self.page.go('/cadastro')
                 ),
                 alignment = alignment.center
             )
@@ -100,18 +99,17 @@ body = Container(
         colors=[colorBackground, colorBackground2],
     ), 
     
-    padding = 0,
+    padding = padding.all(4)
 )
 
 
-def main(page: Page):
-
-    page.padding = 0
-    
-    page.add(
-       body
-    )
 
 
-        
-app(target=main, assets_dir="assets")
+class Login(UserControl):
+  def __init__(self,page):
+    super().__init__()
+    self.page = page
+
+  def build(self):
+    tela = telaLogin(self)
+    return tela
