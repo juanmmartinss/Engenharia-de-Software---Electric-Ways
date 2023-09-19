@@ -16,4 +16,11 @@ def views_handler(page):
           Cadastro(page)
         ]
       ),
+
+      '/home':View(
+        route='/home',
+        controls=[
+          Cadastro(page)
+        ]
+      ),
   }
