@@ -58,7 +58,6 @@ cur.execute(
         id INTEGER NOT NULL PRIMARY KEY,
         lat REAL NOT NULL,
         long REAL NOT NULL,
-        uso_publico INTEGER,
         tipo_conexoes TEXT,
         num_conexoes INTEGER,
         potencia REAL,
