@@ -5,13 +5,6 @@ def main(page: Page):
   
   page.padding = 0
   page.spacing = 0
-
-  page.add(
-    Container(
-    width=page.window_width,
-    bgcolor="white",
-        )
-    )
         
 
   def route_change(route):
@@ -23,7 +16,7 @@ def main(page: Page):
 
 
   page.on_route_change = route_change
-  page.go('/login')
+  page.go('/usuario')
 
 
 

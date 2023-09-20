@@ -75,6 +75,7 @@ def telaLogin(self):
                         Text(value = "    Entrar     ", size = 30),
                         ),
                         style = botaoPadrao,
+                        on_click = lambda _: self.page.go('/home')
                     ),
 
                 alignment = alignment.center,
@@ -99,8 +100,7 @@ def telaLogin(self):
         end=alignment.bottom_right,
         colors=[colorBackground, colorBackground2],
     ), 
-    
-    padding = padding.all(4)
+
 )
 
 

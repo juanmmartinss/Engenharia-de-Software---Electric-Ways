@@ -1,10 +1,5 @@
 from flet import *
-import flet as ft
-# class MenuDetail(UserControl):
-#     def  build(self):
-#         return self.menu
 
-# def create_button(text, color):
 
 colorBackground = '#0F0F1E'
 colorBackground2 = '#1e19a8'
@@ -12,14 +7,16 @@ colorBackgroundBaixo = '#F0F0FF'
 
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
-        bgcolor = colors.TRANSPARENT, 
-        padding = {MaterialState.DEFAULT: 30}, #Tamanho
+        bgcolor = colorBackground, 
+        padding = {MaterialState.DEFAULT: 25}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
-        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},        
-    )
+        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
+ )
 
 
-botoes = Container(
+def telaUsuario(self):
+  return Container(
     
     Column(
         [
@@ -33,6 +30,7 @@ botoes = Container(
                 icon_size = 40,
                 tooltip = "Voltar"
             ),
+            on_click = lambda _: self.page.go('/home'),
             margin = margin.only(top = 15)
         ),
 
@@ -85,6 +83,7 @@ botoes = Container(
                     ),
 
                     style = botaoPadrao,
+                    bgcolor = colors.TRANSPARENT,
 
                 ),
 
@@ -98,7 +97,8 @@ botoes = Container(
 
                     ),
 
-                    style = botaoPadrao,                    
+                    style = botaoPadrao,        
+                    bgcolor = colors.TRANSPARENT,            
 
                 ),
 
@@ -113,7 +113,7 @@ botoes = Container(
                     ),                    
 
                     style = botaoPadrao,
-
+                    bgcolor = colors.TRANSPARENT,
                 ),
 
 
@@ -128,6 +128,7 @@ botoes = Container(
                     ),                       
 
                     style = botaoPadrao,
+                    bgcolor = colors.TRANSPARENT,
                 ),
 
 
@@ -153,24 +154,15 @@ botoes = Container(
 
     ), 
     
-    width=500,
-    height=800,
-
 )
 
 
-def main(page: Page):
-    
-    page.window_max_height = 800
-    page.window_width = 500
-    page. window_max_width = 500
-    page.window_height = 800
-    
-    page.padding = 0
-    
-    page.add(
-        botoes,
-    )
-    
-        
-app(target=main, assets_dir="assets")
+
+class Usuario(UserControl):
+  def __init__(self,page):
+    super().__init__()
+    self.page = page
+
+  def build(self):
+    tela = telaUsuario(self)
+    return tela

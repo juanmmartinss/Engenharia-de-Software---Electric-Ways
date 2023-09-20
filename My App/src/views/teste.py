@@ -16,26 +16,8 @@ botaoPadrao = ButtonStyle(
 
 
 
-class Cadastro(UserControl):
-  def __init__(self,page):
-    super().__init__()
-    self.page = page
+tela =  Column([
 
-  def build(self):
-    return Container(
-    
-    Column([
-        # MenuDetail(),
-        Container(
-            Image(
-                src = "https://i.ibb.co/VtsLycp/logo-without-bg.png",
-                scale=0.8,
-                height = 300,
-            ),
-            margin = margin.only(top = 30)
-        ), 
-
-        Column([
 
             Container(
                 TextField(label = "Usuário", 
@@ -126,7 +108,6 @@ class Cadastro(UserControl):
                         Text(value = "  Cadastrar  ", size = 30),
                         ),
                         style = botaoPadrao,
-                        on_click = lambda _: self.page.go('/login')
                     ),
 
                 alignment = alignment.center,
@@ -142,19 +123,22 @@ class Cadastro(UserControl):
                          color = colors.WHITE)
                     ),
 
-                    on_click = lambda _: self.page.go('/login')
                 ),
                 alignment = alignment.center
             )
 
 
         ])
-    ]),
+
+
+def main(page: Page):
+
+    page.padding = 0
+
+    page.bgcolor = colors.BLACK
+
+    page.add(tela)
+
+
+app(target=main, assets_dir="assets")
     
-    gradient= LinearGradient(
-        begin=alignment.top_left,
-        end=alignment.bottom_right,
-        colors=[colorBackground, colorBackground2],
-    ), 
-    
-)
