@@ -1,4 +1,5 @@
 import sqlite3
+import pandas as pd
 
 con = sqlite3.connect("database.db")
 cur = con.cursor()
@@ -77,3 +78,8 @@ cur.execute(
         FOREIGN KEY (id_usuario) REFERENCES USUARIO(id),
         FOREIGN KEY (id_ponto) REFERENCES PONTO_CARREG(id)
     );''')
+
+df = pd.read_csv('raw/cars_formatado.csv')
+df.to_sql('MODELO_VEIC',con,if_exists='replace',index=False)
+con.commit()
+con.close()
