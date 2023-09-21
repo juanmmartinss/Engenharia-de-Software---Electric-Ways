@@ -13,6 +13,16 @@ txt_field_email = TextField(label="email", col={"md": 4})
 txt_field_password = TextField(label="password", col={"md": 4}, password=True, can_reveal_password=True,)
 txt_field_password_confirm = TextField(label="confirm password", col={"md": 4}, password=True, can_reveal_password=True,)
 
+botaoPadrao = ButtonStyle(
+        color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
+        bgcolor = colorBackground, 
+        padding = {MaterialState.DEFAULT: 6}, #Tamanho
+        overlay_color = colors.BLUE_200, #Cor quando seleciona
+        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
+        
+    )
+
 users = []
 
 def telaCadastro(self):
@@ -27,8 +37,8 @@ def telaCadastro(self):
                             txt_field_email,
                             txt_field_password, 
                             txt_field_password_confirm,
-                            ElevatedButton(text="sign up", col={"md": 4}, on_click=self.btn_sign_up_clicked),
-                            TextButton(text="sign in", col={"md": 4}, on_click=lambda _: self.page.go('/login')),
+                            ElevatedButton(text="sign up", col={"md": 4}, on_click=self.btn_sign_up_clicked, style=botaoPadrao),
+                            TextButton(text="sign in", col={"md": 4}, on_click=lambda _: self.page.go('/login'), style=botaoPadrao),
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
                     ),

@@ -8,6 +8,15 @@ logo = Image(src="https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col=
 txt_field_user = TextField(label="username or email", col={"md": 4})
 txt_field_password = TextField(label="password", col={"md": 4}, password=True, can_reveal_password=True)
 
+botaoPadrao = ButtonStyle(
+        color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
+        bgcolor = colorBackground, 
+        padding = {MaterialState.DEFAULT: 6}, #Tamanho
+        overlay_color = colors.BLUE_200, #Cor quando seleciona
+        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
+        
+    )
 
 def telaLogin(self):
     return ResponsiveRow(
@@ -17,8 +26,8 @@ def telaLogin(self):
                     logo,
                     txt_field_user,
                     txt_field_password,
-                    ElevatedButton(text="sign in", col={"md": 4}, on_click=self.btn_sign_in_clicked),
-                    TextButton(text="sign up", col={"md": 4}, on_click=lambda _: self.page.go('/cadastro')),
+                    ElevatedButton(text="sign in", col={"md": 4}, on_click=self.btn_sign_in_clicked, style=botaoPadrao),
+                    TextButton(text="sign up", col={"md": 4}, on_click=lambda _: self.page.go('/cadastro'), style=botaoPadrao),
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER,
             ),
