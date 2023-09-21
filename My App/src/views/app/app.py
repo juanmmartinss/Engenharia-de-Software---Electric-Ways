@@ -16,7 +16,7 @@ def main(page: Page):
 
 
   page.on_route_change = route_change
-  page.go('/usuario')
+  page.go('/login')
 
 
 
