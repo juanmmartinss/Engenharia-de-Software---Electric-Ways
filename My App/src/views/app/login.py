@@ -18,7 +18,7 @@ def telaLogin(self):
                     txt_field_user,
                     txt_field_password,
                     ElevatedButton(text="sign in", col={"md": 4}, on_click=self.btn_sign_in_clicked),
-                    TextButton(text="sign up", col={"md": 4}, on_click=self.btn_sign_up_clicked),
+                    TextButton(text="sign up", col={"md": 4}, on_click=lambda _: self.page.go('/cadastro')),
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER,
             ),
@@ -67,8 +67,3 @@ class Login(UserControl):
             else:
                 txt_field_user.error_text = "user not found"
                 self.update()
-
-
-    def btn_sign_up_clicked(self, e):
-        lambda _: self.page.go('/cadastro')
-        self.update

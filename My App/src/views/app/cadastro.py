@@ -4,6 +4,8 @@ from flet import *
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 
+#teste
+
 
 logo = Image(src = "https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
 txt_field_username = TextField(label="username", col={"md": 4})
@@ -14,6 +16,8 @@ txt_field_password_confirm = TextField(label="confirm password", col={"md": 4}, 
 users = []
 
 def telaCadastro(self):
+    
+          
   return ResponsiveRow(
                 [
                     Column(
@@ -24,7 +28,7 @@ def telaCadastro(self):
                             txt_field_password, 
                             txt_field_password_confirm,
                             ElevatedButton(text="sign up", col={"md": 4}, on_click=self.btn_sign_up_clicked),
-                            TextButton(text="sign in", col={"md": 4}, on_click=self.btn_sign_in_clicked),
+                            TextButton(text="sign in", col={"md": 4}, on_click=lambda _: self.page.go('/login')),
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
                     ),
@@ -40,7 +44,8 @@ class Cadastro(UserControl):
     
 
   def build(self):
-    return 
+    tela = telaCadastro(self)  
+    return tela
   
   
   def find_by_email(email):
@@ -118,5 +123,5 @@ class Cadastro(UserControl):
 
 
   def btn_sign_in_clicked(e, self):
-        lambda _: self.go('/login')
+        lambda _: self.page.go('/login')
   
