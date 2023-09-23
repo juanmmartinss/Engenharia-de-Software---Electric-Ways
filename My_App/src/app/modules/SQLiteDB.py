@@ -16,7 +16,7 @@ class SQLiteDB:
                 self.conn.execute('PRAGMA foreign_keys = ON')
                 self.conn.commit()
             except sqlite3.Error as e:
-                print(f"Erro ao conectar ao banco de dados: {e}")
+                print(f"Erro ao conectar ao BD: {e}")
 
     def execute_query(self, query, values=None):
         try:
@@ -28,24 +28,10 @@ class SQLiteDB:
             self.conn.commit()
             return cursor.fetchall()
         except sqlite3.Error as e:
-            print(f"Erro ao executar: {e}")
+            print(f"Erro ao executar query: {e}")
             return None
 
     def close(self):
         if self.conn:
             self.conn.close()
             self.conn = None
-
-# EXEMPLO DE USO
-"""
-    db = SQLiteDB()
-    db.connect("database.db")
-
-    cmd = "SELECT * FROM MODELO_VEIC"
-    results = db.execute_query(cmd)
-
-    cmd = "INSERT INTO USUARIO (nome, email, senha) VALUES (?, ?, ?)"
-    db.execute_query(cmd, ("joao", "joao@unifesp.br", "123abc"))
-
-    db.close()
-"""
