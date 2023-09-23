@@ -9,10 +9,10 @@ class SQLiteDB:
             cls._instance.conn = None
         return cls._instance
 
-    def connect(self, db_name):
+    def connect(self):
         if not self.conn:
             try:
-                self.conn = sqlite3.connect(db_name)
+                self.conn = sqlite3.connect("My App\\src\\app\\database\\database.db")
                 self.conn.execute('PRAGMA foreign_keys = ON')
                 self.conn.commit()
             except sqlite3.Error as e:

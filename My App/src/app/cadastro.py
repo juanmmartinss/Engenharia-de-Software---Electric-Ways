@@ -1,5 +1,6 @@
 from flet import *
-from src.database.SQLiteDB import *
+from database.SQLiteDB import *
+import os
 
 
 colorBackground = '#00001E'
@@ -54,7 +55,7 @@ class Cadastro(UserControl):
   
     def user_exists(self, email):
         db = SQLiteDB()
-        db.connect("src\database\database.db")
+        db.connect()
         exists = False
 
         cmd = "SELECT * FROM USUARIO WHERE email = ?"
@@ -102,7 +103,7 @@ class Cadastro(UserControl):
 
     def signup_user(self, username, email, password):
         db = SQLiteDB()
-        db.connect("database.db")
+        db.connect()
 
         cmd = "INSERT INTO USUARIO (nome, email, senha) VALUES (?, ?, ?)"
         db.execute_query(cmd, (username, email, password))
