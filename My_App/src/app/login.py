@@ -1,11 +1,12 @@
 from flet import *
+from modules.SQLiteDB import *
 
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 
 logo = Image(src="https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
-txt_field_user = TextField(label="Email", col={"md": 4})
+txt_field_email = TextField(label="Email", col={"md": 4})
 txt_field_password = TextField(label="Password", col={"md": 4}, password=True, can_reveal_password=True)
 
 botaoPadrao = ButtonStyle(
@@ -24,7 +25,7 @@ def telaLogin(self):
             Column(
                 [
                     logo,
-                    txt_field_user,
+                    txt_field_email,
                     txt_field_password,
                     ElevatedButton(text="SIGN IN", col={"md": 4}, on_click=self.btn_sign_in_clicked, style=botaoPadrao),
                     TextButton(text="SIGN UP", col={"md": 4}, on_click=lambda _: self.page.go('/cadastro'), style=botaoPadrao),
@@ -36,43 +37,69 @@ def telaLogin(self):
 
 
 class Login(UserControl):
+
     def __init__(self, page):
         super().__init__()
         self.page = page
 
+
     def build(self):
         tela = telaLogin(self)
         return tela
+    
 
-    def btn_sign_in_clicked(self, e):
+    def validate_signin(self, email, password):
 
-        if not txt_field_user.value:
-            txt_field_user.error_text = "please enter your username or email"
-            self.update()
+        valid = True
 
+        if not email:
+            txt_field_email.error_text = "please enter your email"
+            valid = False
+        elif not self.get_user(email):
+            txt_field_email.error_text = "email not registered"
+            valid = False
         else:
-            txt_field_user.error_text = ""
-            self.update()
+            txt_field_email.error_text = "" 
 
-        if not txt_field_password.value:
+        if not password:
             txt_field_password.error_text = "please enter your password"
-            self.update()
-
+            valid = False
         else:
             txt_field_password.error_text = ""
-            self.update()
 
-        if txt_field_user.value and txt_field_password.value:
-            if txt_field_user.value == "admin":
-                txt_field_user.error_text = ""
-                self.update()
-                
-                if txt_field_password.value == "admin":
-                    print("sign in")
+        if(valid):
+            results = self.get_user(email)
+            user_email, user_password = results[0]
+            if(password != user_password):
+                txt_field_password.error_text = "wrong password"
+                valid = False
 
-                else:
-                    txt_field_password.error_text = "wrong password"
-                    self.update()
-            else:
-                txt_field_user.error_text = "user not found"
-                self.update()
+        self.update()
+        return valid
+    
+
+    def get_user(self, email):
+        db = SQLiteDB()
+        db.connect()
+
+        cmd = "SELECT email, senha FROM USUARIO WHERE email = ?"
+        results = db.execute_query(cmd, email)
+
+        db.close()
+        return results
+    
+
+    def signin_user(self, email, password):
+        print('Redirecionar para HOME')
+
+
+    def btn_sign_in_clicked(self, e):
+        # obter campos de texto
+        email = txt_field_email.value
+        password = txt_field_password.value
+
+        # verificar validade dos dados
+        valid = self.validate_signin(email, password)
+        if(valid):
+            # entrar com usuário
+            self.signin_user(email, password)

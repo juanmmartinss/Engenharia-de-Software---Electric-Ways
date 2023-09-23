@@ -52,41 +52,42 @@ class Cadastro(UserControl):
         return tela
   
   
-    def user_exists(self, email):
+    def get_user(self, email):
         db = SQLiteDB()
         db.connect()
-        exists = False
 
-        cmd = "SELECT * FROM USUARIO WHERE email = ?"
+        cmd = "SELECT email, senha FROM USUARIO WHERE email = ?"
         results = db.execute_query(cmd, email)
-        if(results):
-            exists = True
 
         db.close()
-        return exists
+        return results
   
 
     def validate_signup(self, username, email, password, password_confirm):
 
         valid = True
+
         if not username:
             txt_field_username.error_text = "please choose a username"
             valid = False
         else:
             txt_field_username.error_text = ""
+
         if not email:
             txt_field_email.error_text = "please enter your email"
             valid = False
-        elif self.user_exists(email):
+        elif self.get_user(email):
             txt_field_email.error_text = "email already registered"
             valid = False
         else:
             txt_field_email.error_text = "" 
+
         if not password:
             txt_field_password.error_text = "please choose a password"
             valid = False
         else:
             txt_field_password.error_text = ""
+
         if not password_confirm:
             txt_field_password_confirm.error_text = "please confirm your password"
             valid = False
@@ -119,11 +120,9 @@ class Cadastro(UserControl):
 
         # verificar validade dos dados
         valid = self.validate_signup(username, email, password, password_confirm)
-        if(not valid):
-           return
-        
-        # cadastrar usuário
-        self.signup_user(username, email, password)
+        if(valid):
+            # cadastrar usuário
+            self.signup_user(username, email, password)
 
 
     def btn_sign_in_clicked(self, e):
