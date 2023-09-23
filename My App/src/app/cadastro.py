@@ -53,7 +53,7 @@ class Cadastro(UserControl):
         return tela
   
   
-    def user_exists(email):
+    def user_exists(self, email):
         db = SQLiteDB()
         db.connect("src\database\database.db")
         exists = False
@@ -101,9 +101,9 @@ class Cadastro(UserControl):
         return valid
     
 
-    def signup_user(username, email, password):
+    def signup_user(self, username, email, password):
         db = SQLiteDB()
-        db.connect("src\database\database.db")
+        db.connect("/database/database.db")
 
         cmd = "INSERT INTO USUARIO (nome, email, senha) VALUES (?, ?, ?)"
         db.execute_query(cmd, (username, email, password))
