@@ -1,5 +1,6 @@
 import sys, os
-from src.database.SQLiteDB import *
+sys.path.append(os.path.abspath(os.path.join(os.path.pardir, 'database')))
+from database.SQLiteDB import *
 from flet import *
 
 
