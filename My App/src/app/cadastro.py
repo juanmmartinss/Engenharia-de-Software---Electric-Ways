@@ -1,6 +1,5 @@
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.pardir, 'database')))
-from database.SQLiteDB import *
+from src.database.SQLiteDB import *
 from flet import *
 
 
@@ -23,9 +22,7 @@ botaoPadrao = ButtonStyle(
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},   
     )
 
-def telaCadastro(self):
-    
-          
+def telaCadastro(self):  
     return ResponsiveRow(
                 [
                     Column(
