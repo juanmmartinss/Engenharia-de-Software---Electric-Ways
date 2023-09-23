@@ -1,6 +1,5 @@
 from flet import *
 from database.SQLiteDB import *
-import os
 
 
 colorBackground = '#00001E'
