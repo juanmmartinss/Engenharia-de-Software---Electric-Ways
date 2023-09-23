@@ -4,6 +4,8 @@ from login import Login
 from home import Home
 from usuario import Usuario
 
+colorBackground = '#00001E'
+colorBackground2 = '#1e19a8'
 colorBackground3 = '#F0F0FF'
 
 
@@ -14,7 +16,8 @@ def views_handler(page):
         route='/login',
         controls=[
           Login(page)
-        ]
+        ],
+        bgcolor = colorBackground
       ),
 
 

@@ -5,9 +5,6 @@ from modules.SQLiteDB import *
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 
-logo = Image(src="https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
-txt_field_email = TextField(label="Email", col={"md": 4})
-txt_field_password = TextField(label="Password", col={"md": 4}, password=True, can_reveal_password=True)
 
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
@@ -19,20 +16,93 @@ botaoPadrao = ButtonStyle(
         
     )
 
+
+
+logo = Image(src="https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
+
+txt_field_email = TextField(
+                            label="Email",
+                            bgcolor = colors.TRANSPARENT, 
+                            border_color = colors.WHITE, 
+                            border_width = 1,
+                            prefix_icon = "person_outline_rounded",
+                            border_radius = 20,
+                            text_size= 15,
+                            color = colors.WHITE,
+                            col={"md": 4}
+                            )
+
+txt_field_password = TextField( label="Password",
+                                bgcolor = colors.TRANSPARENT,
+                                border_color = colors.WHITE, 
+                                border_width = 1,
+                                password = True,
+                                can_reveal_password = True,
+                                prefix_icon = "lock_outline_rounded",
+                                border_radius = 20,
+                                text_size= 15,
+                                color = colors.WHITE, 
+                                col={"md": 4}
+                                )
+
+txt_field_fpass = Column([
+                        TextButton(
+                            content = Container(
+                            Text(value = "Esqueceu a senha?", size = 14, color = colors.WHITE)
+                            )
+                        ),
+                        ],
+
+                        horizontal_alignment = CrossAxisAlignment.START
+                    )
+
+
 def telaLogin(self):
     return ResponsiveRow(
         [
             Column(
                 [
                     logo,
+
                     txt_field_email,
+
                     txt_field_password,
-                    ElevatedButton(text="SIGN IN", col={"md": 4}, on_click=self.btn_sign_in_clicked, style=botaoPadrao),
-                    TextButton(text="SIGN UP", col={"md": 4}, on_click=lambda _: self.page.go('/cadastro'), style=botaoPadrao),
+                ],
+                horizontal_alignment=CrossAxisAlignment.CENTER
+            ),
+
+            Column(
+                [
+                    txt_field_fpass
+                ],
+                horizontal_alignment=CrossAxisAlignment.START
+            ),
+
+            Column([
+                    ElevatedButton(
+                            content = Container(
+                                Text(value = "  Entrar  ", size = 30),
+                            ),
+                            col={"md": 4}, 
+                            on_click=self.btn_sign_in_clicked, 
+                            style=botaoPadrao,
+                            ),
+
+                    TextButton(
+                            content = Container(
+                                Text(value = "Cadastre-se", 
+                                     size = 15, 
+                                     color = colors.WHITE,
+                            ), 
+                            col={"md": 4}, 
+                            on_click=lambda _: self.page.go('/cadastro'), 
+
+                            ),
+                    )
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER,
             ),
-        ],
+        ]
     )
 
 
