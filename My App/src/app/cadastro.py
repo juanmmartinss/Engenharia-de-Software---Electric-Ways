@@ -103,7 +103,7 @@ class Cadastro(UserControl):
 
     def signup_user(self, username, email, password):
         db = SQLiteDB()
-        db.connect("/database/database.db")
+        db.connect("database.db")
 
         cmd = "INSERT INTO USUARIO (nome, email, senha) VALUES (?, ?, ?)"
         db.execute_query(cmd, (username, email, password))
