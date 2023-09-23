@@ -1,5 +1,5 @@
-from src.database.SQLiteDB import *
 from flet import *
+from src.database.SQLiteDB import *
 
 
 colorBackground = '#00001E'
