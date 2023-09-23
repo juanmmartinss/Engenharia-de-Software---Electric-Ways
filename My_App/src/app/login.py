@@ -1,5 +1,6 @@
 from flet import *
 from modules.SQLiteDB import *
+from modules.ManageDB import *
 
 
 colorBackground = '#00001E'
@@ -95,7 +96,7 @@ def telaLogin(self):
                                      color = colors.WHITE,
                             ), 
                             col={"md": 4}, 
-                            on_click=lambda _: self.page.go('/cadastro'), 
+                            on_click=self.btn_sign_up_clicked, 
 
                             ),
                     )
@@ -125,7 +126,7 @@ class Login(UserControl):
         if not email:
             txt_field_email.error_text = "please enter your email"
             valid = False
-        elif not self.get_user(email):
+        elif not get_user(email):
             txt_field_email.error_text = "email not registered"
             valid = False
         else:
@@ -138,7 +139,7 @@ class Login(UserControl):
             txt_field_password.error_text = ""
 
         if(valid):
-            results = self.get_user(email)
+            results = get_user(email)
             user_email, user_password = results[0]
             if(password != user_password):
                 txt_field_password.error_text = "wrong password"
@@ -146,17 +147,6 @@ class Login(UserControl):
 
         self.update()
         return valid
-    
-
-    def get_user(self, email):
-        db = SQLiteDB()
-        db.connect()
-
-        cmd = "SELECT email, senha FROM USUARIO WHERE email = ?"
-        results = db.execute_query(cmd, email)
-
-        db.close()
-        return results
     
 
     def signin_user(self, email, password):
@@ -173,3 +163,6 @@ class Login(UserControl):
         if(valid):
             # entrar com usuário
             self.signin_user(email, password)
+
+    def btn_sign_up_clicked(self, e):
+        lambda _: self.page.go('/cadastro')

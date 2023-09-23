@@ -82,14 +82,14 @@ cur.execute(
 
 
 # INSERIR VEÍCULOS
-df = pd.read_csv('raw/cars_formatado.csv')
+df = pd.read_csv('raw_data/cars_formatado.csv')
 df.to_sql('MODELO_VEIC',con,if_exists='replace',index=False)
 con.commit()
 con.close()
 
 
 #INSERIR PONTOS (INCOMPLETO)
-""" with open('raw/points_formatado.json', 'r', encoding="utf8") as arquivo:
+""" with open('raw_data/points_formatado.json', 'r', encoding="utf8") as arquivo:
     dados_raw = json.load(arquivo)
 
 df = pd.json_normalize(dados_raw)

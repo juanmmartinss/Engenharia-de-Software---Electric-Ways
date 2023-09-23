@@ -1,5 +1,6 @@
 from flet import *
 from modules.SQLiteDB import *
+from modules.ManageDB import *
 
 
 colorBackground = '#00001E'
@@ -51,17 +52,6 @@ class Cadastro(UserControl):
         tela = telaCadastro(self)  
         return tela
   
-  
-    def get_user(self, email):
-        db = SQLiteDB()
-        db.connect()
-
-        cmd = "SELECT email, senha FROM USUARIO WHERE email = ?"
-        results = db.execute_query(cmd, email)
-
-        db.close()
-        return results
-  
 
     def validate_signup(self, username, email, password, password_confirm):
 
@@ -76,7 +66,7 @@ class Cadastro(UserControl):
         if not email:
             txt_field_email.error_text = "please enter your email"
             valid = False
-        elif self.get_user(email):
+        elif get_user(email):
             txt_field_email.error_text = "email already registered"
             valid = False
         else:
@@ -99,16 +89,6 @@ class Cadastro(UserControl):
  
         self.update()
         return valid
-    
-
-    def signup_user(self, username, email, password):
-        db = SQLiteDB()
-        db.connect()
-
-        cmd = "INSERT INTO USUARIO (nome, email, senha) VALUES (?, ?, ?)"
-        db.execute_query(cmd, (username, email, password))
-
-        db.close()
 
 
     def btn_sign_up_clicked(self, e):
@@ -122,7 +102,7 @@ class Cadastro(UserControl):
         valid = self.validate_signup(username, email, password, password_confirm)
         if(valid):
             # cadastrar usuário
-            self.signup_user(username, email, password)
+            signup_user(username, email, password)
 
 
     def btn_sign_in_clicked(self, e):
