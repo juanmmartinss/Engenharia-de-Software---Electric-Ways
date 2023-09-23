@@ -33,7 +33,7 @@ def telaCadastro(self):
                             txt_field_password, 
                             txt_field_password_confirm,
                             ElevatedButton(text="SIGN UP", col={"md": 4}, on_click=self.btn_sign_up_clicked, style=botaoPadrao),
-                            TextButton(text="SIGN IN", col={"md": 4}, on_click=lambda _: self.page.go('/login'), style=botaoPadrao),
+                            TextButton(text="SIGN IN", col={"md": 4}, on_click=self.btn_sign_in_clicked, style=botaoPadrao),
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
                     ),
@@ -127,6 +127,6 @@ class Cadastro(UserControl):
         self.signup_user(username, email, password)
 
 
-    def btn_sign_in_clicked(e, self):
+    def btn_sign_in_clicked(self, e):
         lambda _: self.page.go('/login')
   
