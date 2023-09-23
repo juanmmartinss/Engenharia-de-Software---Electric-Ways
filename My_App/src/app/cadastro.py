@@ -1,5 +1,5 @@
 from flet import *
-from database.SQLiteDB import *
+from modules.SQLiteDB import *
 
 
 colorBackground = '#00001E'
@@ -59,7 +59,7 @@ class Cadastro(UserControl):
 
         cmd = "SELECT * FROM USUARIO WHERE email = ?"
         results = db.execute_query(cmd, email)
-        if(len(results) > 0):
+        if(results):
             exists = True
 
         db.close()
