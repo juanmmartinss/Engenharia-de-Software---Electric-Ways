@@ -11,7 +11,7 @@ def get_user(email):
         return results
 
 
-def signup_user(username, email, password):
+def add_user(username, email, password):
         db = SQLiteDB()
         db.connect()
 

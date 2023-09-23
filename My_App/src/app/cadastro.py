@@ -102,5 +102,5 @@ class Cadastro(UserControl):
         valid = self.validate_signup(username, email, password, password_confirm)
         if(valid):
             # cadastrar usuário
-            signup_user(username, email, password)
+            add_user(username, email, password)
   

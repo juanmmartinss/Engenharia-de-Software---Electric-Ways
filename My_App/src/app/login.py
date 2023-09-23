@@ -149,8 +149,8 @@ class Login(UserControl):
         return valid
     
 
-    def signin_user(self, email, password):
-        print('Redirecionar para HOME')
+    def signin_user(self, email):
+        self.page.go('/home')
 
 
     def btn_sign_in_clicked(self, e):
@@ -162,4 +162,4 @@ class Login(UserControl):
         valid = self.validate_signin(email, password)
         if(valid):
             # entrar com usuário
-            self.signin_user(email, password)
+            self.signin_user(email)
