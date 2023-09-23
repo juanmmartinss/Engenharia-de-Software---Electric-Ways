@@ -96,7 +96,7 @@ def telaLogin(self):
                                      color = colors.WHITE,
                             ), 
                             col={"md": 4}, 
-                            on_click=self.btn_sign_up_clicked, 
+                            on_click=lambda _: self.page.go('/cadastro'), 
 
                             ),
                     )
@@ -163,6 +163,3 @@ class Login(UserControl):
         if(valid):
             # entrar com usuário
             self.signin_user(email, password)
-
-    def btn_sign_up_clicked(self, e):
-        lambda _: self.page.go('/cadastro')
