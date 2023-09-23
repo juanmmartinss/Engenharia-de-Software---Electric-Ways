@@ -1,17 +1,16 @@
+from src.database.SQLiteDB import *
 from flet import *
 
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 
-#teste
-
 
 logo = Image(src = "https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
-txt_field_username = TextField(label="username", col={"md": 4})
-txt_field_email = TextField(label="email", col={"md": 4})
-txt_field_password = TextField(label="password", col={"md": 4}, password=True, can_reveal_password=True,)
-txt_field_password_confirm = TextField(label="confirm password", col={"md": 4}, password=True, can_reveal_password=True,)
+txt_field_username = TextField(label="Username", col={"md": 4})
+txt_field_email = TextField(label="Email", col={"md": 4})
+txt_field_password = TextField(label="Password", col={"md": 4}, password=True, can_reveal_password=True,)
+txt_field_password_confirm = TextField(label="Confirm Password", col={"md": 4}, password=True, can_reveal_password=True,)
 
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
@@ -19,16 +18,13 @@ botaoPadrao = ButtonStyle(
         padding = {MaterialState.DEFAULT: 6}, #Tamanho
         overlay_color = colors.BLUE_200, #Cor quando seleciona
         side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
-        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
-        
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},   
     )
-
-users = []
 
 def telaCadastro(self):
     
           
-  return ResponsiveRow(
+    return ResponsiveRow(
                 [
                     Column(
                         [
@@ -37,8 +33,8 @@ def telaCadastro(self):
                             txt_field_email,
                             txt_field_password, 
                             txt_field_password_confirm,
-                            ElevatedButton(text="sign up", col={"md": 4}, on_click=self.btn_sign_up_clicked, style=botaoPadrao),
-                            TextButton(text="sign in", col={"md": 4}, on_click=lambda _: self.page.go('/login'), style=botaoPadrao),
+                            ElevatedButton(text="SIGN UP", col={"md": 4}, on_click=self.btn_sign_up_clicked, style=botaoPadrao),
+                            TextButton(text="SIGN IN", col={"md": 4}, on_click=lambda _: self.page.go('/login'), style=botaoPadrao),
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
                     ),
@@ -48,90 +44,90 @@ def telaCadastro(self):
 
 class Cadastro(UserControl):
   
-  def __init__(self,page):
-    super().__init__()
-    self.page = page
+    def __init__(self,page):
+        super().__init__()
+        self.page = page
     
 
-  def build(self):
-    tela = telaCadastro(self)  
-    return tela
+    def build(self):
+        tela = telaCadastro(self)  
+        return tela
   
   
-  def find_by_email(email):
-        for user in users:
-            if user["email"] == email:
-                return user
-        return None
+    def user_exists(email):
+        db = SQLiteDB()
+        db.connect("src\database\database.db")
+        exists = False
+
+        cmd = "SELECT * FROM USUARIO WHERE email = ?"
+        results = db.execute_query(cmd, email)
+        if(len(results) > 0):
+            exists = True
+
+        db.close()
+        return exists
   
 
-  def find_by_username(username):
-        for user in users:
-            if user["username"] == username:
-                return user
-        return None
+    def validate_signup(self, username, email, password, password_confirm):
 
-
-  def btn_sign_up_clicked(self, e):
-        
-        if not txt_field_username.value:
+        valid = True
+        if not username:
             txt_field_username.error_text = "please choose a username"
-            self.update()
-
-        elif self.find_by_username(txt_field_username.value):
-            txt_field_username.error_text = "username already taken"
-            self.update()
-
+            valid = False
         else:
             txt_field_username.error_text = ""
-            self.update()
-            
-        if not txt_field_email.value:
+        if not email:
             txt_field_email.error_text = "please enter your email"
-            self.update()
-
-        elif self.find_by_email(txt_field_email.value):
-            txt_field_email.error_text = "email already taken"
-            self.update()
-
+            valid = False
+        elif self.user_exists(email):
+            txt_field_email.error_text = "email already registered"
+            valid = False
         else:
-            txt_field_email.error_text = ""
-            self.update() 
-            
-        if not txt_field_password.value:
+            txt_field_email.error_text = "" 
+        if not password:
             txt_field_password.error_text = "please choose a password"
-            self.update()
-
+            valid = False
         else:
             txt_field_password.error_text = ""
-            self.update()
-            
-        if not txt_field_password_confirm.value:
+        if not password_confirm:
             txt_field_password_confirm.error_text = "please confirm your password"
-            self.update()
-
-        elif txt_field_password.value != txt_field_password_confirm.value:
+            valid = False
+        elif txt_field_password.value != password_confirm:
             txt_field_password_confirm.error_text = "passwords do not match"
-            self.update()
-
+            valid = False
         else:
             txt_field_password_confirm.error_text = ""
-            self.update()
-            
-        if txt_field_username.value and txt_field_email.value and txt_field_password.value and txt_field_password_confirm.value:
-            if not self.find_by_email(txt_field_email.value) and not self.find_by_username(txt_field_username.value):
-                if txt_field_password.value == txt_field_password_confirm.value:
-                    users.append({
-                        "username": txt_field_username.value,
-                        "email": txt_field_email.value,
-                        "password": txt_field_password.value,
-                    })
-                    print("sign up")
+ 
+        self.update()
+        return valid
+    
 
-                    for user in users:
-                       print(user)
+    def signup_user(username, email, password):
+        db = SQLiteDB()
+        db.connect("src\database\database.db")
+
+        cmd = "INSERT INTO USUARIO (nome, email, senha) VALUES (?, ?, ?)"
+        db.execute_query(cmd, (username, email, password))
+
+        db.close()
 
 
-  def btn_sign_in_clicked(e, self):
+    def btn_sign_up_clicked(self, e):
+        # obter campos de texto
+        username = txt_field_username.value
+        email = txt_field_email.value
+        password = txt_field_password.value
+        password_confirm = txt_field_password_confirm.value
+
+        # verificar validade dos dados
+        valid = self.validate_signup(username, email, password, password_confirm)
+        if(not valid):
+           return
+        
+        # cadastrar usuário
+        self.signup_user(username, email, password)
+
+
+    def btn_sign_in_clicked(e, self):
         lambda _: self.page.go('/login')
   
