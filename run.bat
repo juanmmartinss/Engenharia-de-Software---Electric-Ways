@@ -1,3 +1,2 @@
 @echo off
-cd My_App\src\app
-python app.py
+python My_App\src\app\app.py
