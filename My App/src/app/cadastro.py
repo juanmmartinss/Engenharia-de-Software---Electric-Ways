@@ -1,5 +1,4 @@
-import sys, os
-from database.SQLiteDB import *
+from src.database.SQLiteDB import *
 from flet import *
 
 
