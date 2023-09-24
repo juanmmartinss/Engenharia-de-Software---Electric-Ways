@@ -4,10 +4,12 @@ from modules.ManageDB import *
 from modules.UI import *
 
 
-logo = Image(src="https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
+logo = Image(src="My_App/assets/images/logo.png", scale=0.8, col={"md": 4})
 
 txt_field_email = TextField(
-                            label="Email",
+                            #label="Email",
+                            hint_text="Email",
+                            hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT, 
                             border_color = colors.WHITE, 
                             border_width = 1,
@@ -16,10 +18,12 @@ txt_field_email = TextField(
                             text_size = 15,
                             color = colors.WHITE,
                             col = {"md": 4}
+                        
                             )
 
-txt_field_password = TextField( 
-                            label="Senha",
+txt_field_password = TextField(
+                            hint_text="Senha",
+                            hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT,
                             border_color = colors.WHITE, 
                             border_width = 1,
