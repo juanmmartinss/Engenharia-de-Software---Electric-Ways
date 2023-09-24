@@ -1,26 +1,67 @@
 from flet import *
 from modules.SQLiteDB import *
 from modules.ManageDB import *
-
-
-colorBackground = '#00001E'
-colorBackground2 = '#1e19a8'
+from modules.UI import *
 
 
 logo = Image(src = "https://i.ibb.co/VtsLycp/logo-without-bg.png", scale=0.8, col={"md": 4})
-txt_field_username = TextField(label="Username", col={"md": 4})
-txt_field_email = TextField(label="Email", col={"md": 4})
-txt_field_password = TextField(label="Password", col={"md": 4}, password=True, can_reveal_password=True,)
-txt_field_password_confirm = TextField(label="Confirm Password", col={"md": 4}, password=True, can_reveal_password=True,)
 
-botaoPadrao = ButtonStyle(
-        color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
-        bgcolor = colorBackground, 
-        padding = {MaterialState.DEFAULT: 6}, #Tamanho
-        overlay_color = colors.BLUE_200, #Cor quando seleciona
-        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
-        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},   
-    )
+
+txt_field_username = TextField(
+                            label="Username",
+                            bgcolor = colors.TRANSPARENT, 
+                            border_color = colors.WHITE, 
+                            border_width = 1,
+                            prefix_icon = "person_outline_rounded",
+                            border_radius = 20,
+                            text_size= 15,
+                            color = colors.WHITE,
+                            col={"md": 4}
+                            )
+
+
+txt_field_email = TextField(
+                            label="Email",
+                            bgcolor = colors.TRANSPARENT, 
+                            border_color = colors.WHITE, 
+                            border_width = 1,
+                            prefix_icon = "person_outline_rounded",
+                            border_radius = 20,
+                            text_size= 15,
+                            color = colors.WHITE,
+                            col={"md": 4}
+                            )
+
+
+txt_field_password = TextField(
+                            label="Senha",
+                            bgcolor = colors.TRANSPARENT,
+                            border_color = colors.WHITE, 
+                            border_width = 1,
+                            password = True,
+                            can_reveal_password = True,
+                            prefix_icon = "lock_outline_rounded",
+                            border_radius = 20,
+                            text_size= 15,
+                            color = colors.WHITE, 
+                            col={"md": 4}
+                            )
+
+
+txt_field_password_confirm = TextField(
+                            label="Confirmar senha",
+                            bgcolor = colors.TRANSPARENT,
+                            border_color = colors.WHITE, 
+                            border_width = 1,
+                            password = True,
+                            can_reveal_password = True,
+                            prefix_icon = "lock_outline_rounded",
+                            border_radius = 20,
+                            text_size= 15,
+                            color = colors.WHITE, 
+                            col={"md": 4}
+                            )
+
 
 def telaCadastro(self):  
     return ResponsiveRow(
@@ -28,12 +69,36 @@ def telaCadastro(self):
                     Column(
                         [
                             logo,
+
                             txt_field_username, 
+
                             txt_field_email,
+
                             txt_field_password, 
+
                             txt_field_password_confirm,
-                            ElevatedButton(text="SIGN UP", col={"md": 4}, on_click=self.btn_sign_up_clicked, style=botaoPadrao),
-                            TextButton(text="SIGN IN", col={"md": 4}, on_click=lambda _: self.page.go('/login'), style=botaoPadrao),
+
+                            ElevatedButton(
+                                content = Container(
+                                    Text(value = "Cadastrar", size = 30),
+                                ),
+                                col = {"md": 4}, 
+                                on_click = self.btn_sign_up_clicked, 
+                                style = botaoPadrao,
+                                width = 200,
+                            ),
+
+                            TextButton(
+                                content = Container(
+                                    Text(value = "Entrar", 
+                                        size = 20, 
+                                        color = colors.WHITE,
+                                ), 
+                                col={"md": 4}, 
+                                on_click=lambda _: self.page.go('/login'), 
+
+                                ),
+                            )
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
                     ),

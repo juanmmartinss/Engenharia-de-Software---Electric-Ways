@@ -13,23 +13,24 @@ txt_field_email = TextField(
                             border_width = 1,
                             prefix_icon = "person_outline_rounded",
                             border_radius = 20,
-                            text_size= 15,
+                            text_size = 15,
                             color = colors.WHITE,
-                            col={"md": 4}
+                            col = {"md": 4}
                             )
 
-txt_field_password = TextField( label="Password",
-                                bgcolor = colors.TRANSPARENT,
-                                border_color = colors.WHITE, 
-                                border_width = 1,
-                                password = True,
-                                can_reveal_password = True,
-                                prefix_icon = "lock_outline_rounded",
-                                border_radius = 20,
-                                text_size= 15,
-                                color = colors.WHITE, 
-                                col={"md": 4}
-                                )
+txt_field_password = TextField( 
+                            label="Senha",
+                            bgcolor = colors.TRANSPARENT,
+                            border_color = colors.WHITE, 
+                            border_width = 1,
+                            password = True,
+                            can_reveal_password = True,
+                            prefix_icon = "lock_outline_rounded",
+                            border_radius = 20,
+                            text_size= 15,
+                            color = colors.WHITE, 
+                            col={"md": 4}
+                            )
 
 txt_field_fpass = Column([
                         TextButton(
@@ -67,17 +68,18 @@ def telaLogin(self):
             Column([
                     ElevatedButton(
                             content = Container(
-                                Text(value = "  Entrar  ", size = 30),
+                                Text(value = "Entrar", size = 30),
                             ),
-                            col={"md": 4}, 
-                            on_click=self.btn_sign_in_clicked, 
-                            style=botaoPadrao,
+                            col = {"md": 4}, 
+                            on_click = self.btn_sign_in_clicked, 
+                            style = botaoPadrao,
+                            width = 200,
                             ),
 
                     TextButton(
                             content = Container(
                                 Text(value = "Cadastre-se", 
-                                     size = 15, 
+                                     size = 20, 
                                      color = colors.WHITE,
                             ), 
                             col={"md": 4}, 

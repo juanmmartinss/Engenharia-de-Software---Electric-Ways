@@ -25,7 +25,8 @@ def views_handler(page):
         route='/cadastro',
         controls=[
           Cadastro(page)
-        ]
+        ],
+        bgcolor = colorBackground
       ),
 
 
@@ -60,13 +61,15 @@ def views_handler(page):
               bgcolor = colorBackground3,
             ),
           Home(page),
-        ]
+        ],
+        bgcolor = colorBackground
       ),
 
       '/usuario':View(
         route='/usuario',
         controls=[
           Usuario(page)
-        ]
+        ],
+        bgcolor = colorBackground3
       ),
   }
