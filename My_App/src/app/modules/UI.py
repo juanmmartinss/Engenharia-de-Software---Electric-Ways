@@ -2,6 +2,7 @@ from flet import *
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
+colorBackgroundClaro = '#F0F0FF'
 
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),

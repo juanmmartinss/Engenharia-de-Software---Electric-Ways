@@ -6,7 +6,6 @@ def main(page: Page):
   page.padding = 0
   page.spacing = 0
         
-
   def route_change(route):
     print(page.route)
     page.views.clear()
@@ -14,10 +13,7 @@ def main(page: Page):
       views_handler(page)[page.route]
     )
 
-
   page.on_route_change = route_change
   page.go('/login')
-
-
 
 app(target=main)

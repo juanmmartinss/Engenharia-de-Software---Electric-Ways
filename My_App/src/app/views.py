@@ -2,12 +2,23 @@ from flet import *
 from cadastro import Cadastro
 from login import Login
 from home import Home
-from usuario import Usuario
+from perfil import Perfil
+from modules.UI import *
 
-colorBackground = '#00001E'
-colorBackground2 = '#1e19a8'
-colorBackground3 = '#F0F0FF'
-
+def change_page(e, page):
+  if e.control.selected_index == 0:
+    page.go('/home')
+  elif e.control.selected_index == 1:
+    pass
+    # page.go('/rotas')
+  elif e.control.selected_index == 2:
+    pass
+    # page.go('/carregamento')
+  elif e.control.selected_index == 3:
+    page.go('/perfil')
+  elif e.control.selected_index == 4: 
+    pass
+    #page.go('/configuracoes')
 
 def views_handler(page):
   return {
@@ -17,7 +28,7 @@ def views_handler(page):
         controls=[
           Login(page)
         ],
-        bgcolor = colorBackground
+        bgcolor = colorBackground,
       ),
 
 
@@ -34,42 +45,42 @@ def views_handler(page):
         route='/home',
         controls=[
           NavigationBar(
+              selected_index=0,
               destinations=[
+                
+                  NavigationDestination(
+                      icon = icons.HOUSE_ROUNDED, 
+                      ),
 
                   NavigationDestination(
                       icon = icons.EXPLORE, 
-                      label = "Rotas",
                       ),
 
                   NavigationDestination(
                       icon = icons.BATTERY_CHARGING_FULL_ROUNDED, 
-                      label = "Carregamento"
                       ),
-
+                  
                   NavigationDestination(
                       icon = icons.PERSON_ROUNDED,
-                      label = "Perfil",
                   ),
 
                   NavigationDestination(
                       icon = icons.SETTINGS_ROUNDED,
-                      label = "Configurações",
                   ),
-
               ],
-
-              bgcolor = colorBackground3,
+              on_change=lambda e: change_page(e, page),
+              bgcolor = colorBackgroundClaro,
             ),
           Home(page),
         ],
         bgcolor = colorBackground
       ),
-
-      '/usuario':View(
-        route='/usuario',
+      
+      '/perfil':View(
+        route='/perfil',
         controls=[
-          Usuario(page)
+          Perfil(page)
         ],
-        bgcolor = colorBackground3
+        bgcolor = colorBackgroundClaro
       ),
   }

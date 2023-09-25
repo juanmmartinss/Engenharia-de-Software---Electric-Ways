@@ -43,6 +43,9 @@ class Home(UserControl):
         super().__init__()
         self.page = page
 
+    def search_bar_clicked(self):
+        pass
+
     def build(self):
         
         return Column([
