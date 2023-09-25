@@ -1,8 +1,5 @@
 from flet import *
-
-colorBackground = '#00001E'
-colorBackground2 = '#1e19a8'
-colorBackground3 = '#F0F0FF'
+from modules.UI import *
 
 infoButton = Container(
     IconButton(
@@ -25,7 +22,6 @@ searchBar = Container(
                     Icon(name = icons.SEARCH_ROUNDED, color = colorBackground),
                     Text("PESQUISAR", color = colorBackground),
                 ],
-
                 alignment = alignment.center,
             ),
         ),
@@ -44,15 +40,32 @@ class Home(UserControl):
         self.page = page
 
     def search_bar_clicked(self):
+        self.page.update()
         pass
 
     def build(self):
         
         return Column([
-                searchBar,
+
+                Dropdown(
+                    width=100,
+                    options=[
+                        dropdown.Option("PESQUISAR"),
+                        dropdown.Option("HISTÓRICO"),
+                        dropdown.Option("FAVORITOS"),
+                    ],
+                    bgcolor = colorBackground,
+                    focused_bgcolor = colorBackground,
+                    border_color = colorBackground,
+                    color = colorBackground
+                ),
+
+
                 infoButton,
+
             ],
-            horizontal_alignment = CrossAxisAlignment.STRETCH)
+            horizontal_alignment = CrossAxisAlignment.STRETCH
+            )
 
 
 

@@ -69,11 +69,11 @@ def views_handler(page):
                   ),
               ],
               on_change=lambda e: change_page(e, page),
-              bgcolor = colorBackgroundClaro,
+              bgcolor = colorBackground,
             ),
           Home(page),
         ],
-        bgcolor = colorBackground
+        bgcolor = colorBackgroundClaro
       ),
       
       '/perfil':View(

@@ -14,6 +14,6 @@ def main(page: Page):
     )
 
   page.on_route_change = route_change
-  page.go('/login')
+  page.go('/home')
 
 app(target=main)
