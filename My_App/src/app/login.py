@@ -142,13 +142,12 @@ class Login(UserControl):
         self.page.go('/home')
 
     def btn_sign_in_clicked(self, e):
-        self.page.go('/home') # just for testing!!!!!! remove this line
         # obter campos de texto
-        # email = txt_field_email.value
-        # password = txt_field_password.value
+        email = txt_field_email.value
+        password = txt_field_password.value
 
-        # # verificar validade dos dados
-        # valid = self.validate_signin(email, password)
-        # if(valid):
-        #     # entrar com usuário
-        #     self.signin_user(email)
+        # verificar validade dos dados
+        valid = self.validate_signin(email, password)
+        if(valid):
+            # entrar com usuário
+            self.signin_user(email)

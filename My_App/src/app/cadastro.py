@@ -161,17 +161,16 @@ class Cadastro(UserControl):
 
 
     def btn_sign_up_clicked(self, e):
-        self.page.go('/login') # just for testing!!!!!! remove this line
         # obter campos de texto
-        # username = txt_field_username.value
-        # email = txt_field_email.value
-        # password = txt_field_password.value
-        # password_confirm = txt_field_password_confirm.value
+        username = txt_field_username.value
+        email = txt_field_email.value
+        password = txt_field_password.value
+        password_confirm = txt_field_password_confirm.value
 
-        # # verificar validade dos dados
-        # valid = self.validate_signup(username, email, password, password_confirm)
-        # if(valid):
-        #     # cadastrar usuário
-        #     add_user(username, email, password)
-        #     self.page.go('/login')
+        # verificar validade dos dados
+        valid = self.validate_signup(username, email, password, password_confirm)
+        if(valid):
+            # cadastrar usuário
+            add_user(username, email, password)
+            self.page.go('/login')
   

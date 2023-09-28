@@ -121,3 +121,5 @@ class Perfil(UserControl):
         tela = telaPerfil(self)
         return tela
     
+    def btn_logout_clicked(self, e):
+        self.page.go('/login')
