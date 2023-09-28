@@ -119,6 +119,7 @@ class Perfil(UserControl):
 
     def build(self):
         tela = telaPerfil(self)
+        btn_sair.on_click = self.btn_logout_clicked
         return tela
     
     def btn_logout_clicked(self, e):
