@@ -3,6 +3,13 @@ from modules.SQLiteDB import *
 from modules.ManageDB import *
 from modules.UI import *
 
+back_button = IconButton(
+                        icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
+                        icon_color = colorBackground,
+                        icon_size = 20,
+                        tooltip = "Voltar",
+                    )
+
 icone_perfil = CircleAvatar(
                 foreground_image_url = "My_App/assets/images/logo.png",
                 content = Text("VOCÊ"),
@@ -72,18 +79,13 @@ btn_sair = ElevatedButton(
     bgcolor = colors.TRANSPARENT,
 )
 
+
 def telaPerfil(self):
     return ResponsiveRow(
         [
             Column(
                 [
-                    IconButton(
-                        icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
-                        icon_color = colorBackground,
-                        icon_size = 20,
-                        tooltip = "Voltar",
-                        on_click = lambda _: self.page.go('/home'),
-                    ),
+                    back_button
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
             ),
@@ -119,7 +121,6 @@ class Perfil(UserControl):
 
     def build(self):
         tela = telaPerfil(self)
-        btn_sair.on_click = self.btn_logout_clicked
         return tela
     
     def btn_logout_clicked(self, e):

@@ -67,6 +67,25 @@ txt_field_password_confirm = TextField(
                             )
 
 
+cadastrar_button = ElevatedButton(
+                                content = Container(
+                                    Text(value = "Cadastrar", size = 30),
+                                ),
+                                col = {"md": 4},  
+                                style = botaoPadrao,
+                                width = 200,
+                            )
+
+entrar_button = TextButton(
+                            content = Container(
+                                Text(value = "Entrar", 
+                                    size = 20, 
+                                    color = colors.WHITE,
+                                ), 
+                            ),
+                            col={"md": 4}, 
+                            )
+
 def telaCadastro(self):  
     return ResponsiveRow(
                 [
@@ -82,27 +101,10 @@ def telaCadastro(self):
 
                             txt_field_password_confirm,
 
-                            ElevatedButton(
-                                content = Container(
-                                    Text(value = "Cadastrar", size = 30),
-                                ),
-                                col = {"md": 4}, 
-                                on_click = self.btn_sign_up_clicked, 
-                                style = botaoPadrao,
-                                width = 200,
-                            ),
+                            cadastrar_button,
 
-                            TextButton(
-                                content = Container(
-                                    Text(value = "Entrar", 
-                                        size = 20, 
-                                        color = colors.WHITE,
-                                ), 
-                                col={"md": 4}, 
-                                on_click=lambda _: self.page.go('/login'), 
-
-                                ),
-                            )
+                            entrar_button,
+                            
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
                     ),

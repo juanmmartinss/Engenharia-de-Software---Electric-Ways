@@ -48,9 +48,28 @@ txt_field_fpass = Column([
                     )
 
 
+login_button = ElevatedButton(
+                            content = Container(
+                                Text(value = "Entrar", size = 30),
+                                ),
+                            col = {"md": 4}, 
+                            style = botaoPadrao,
+                            width = 200,
+                            )
+
+cadastrar_button = TextButton(
+                            content = Container(
+                                Text(value = "Cadastre-se", 
+                                     size = 20, 
+                                     color = colors.WHITE,),
+                                ), 
+                            col={"md": 4}, 
+                            )
+
 def telaLogin(self):
     return ResponsiveRow(
         [
+
             Column(
                 [
                     logo,
@@ -70,31 +89,15 @@ def telaLogin(self):
             ),
 
             Column([
-                    ElevatedButton(
-                            content = Container(
-                                Text(value = "Entrar", size = 30),
-                            ),
-                            col = {"md": 4}, 
-                            on_click = self.btn_sign_in_clicked, 
-                            style = botaoPadrao,
-                            width = 200,
-                            ),
+                    login_button,
 
-                    TextButton(
-                            content = Container(
-                                Text(value = "Cadastre-se", 
-                                     size = 20, 
-                                     color = colors.WHITE,
-                            ), 
-                            col={"md": 4}, 
-                            on_click=lambda _: self.page.go('/cadastro'), 
-
-                            ),
-                    )
+                    cadastrar_button
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER,
             ),
-        ]
+        ],
+
+        vertical_alignment=CrossAxisAlignment.CENTER,
     )
 
 
