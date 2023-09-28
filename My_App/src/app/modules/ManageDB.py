@@ -5,7 +5,7 @@ def get_user(email):
         db.connect()
 
         cmd = "SELECT email, senha FROM USUARIO WHERE email = ?"
-        results = db.execute_query(cmd, email)
+        results = db.execute_query(cmd, (email))
 
         db.close()
         return results
