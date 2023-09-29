@@ -118,6 +118,7 @@ class Perfil(UserControl):
         btn_editar_rotas.on_click = self.btn_editar_rotas
         btn_editar_veiculos.on_click = self.btn_editar_veiculos
         btn_logout.on_click = self.btn_logout_clicked
+        
         tela = telaPerfil(self)
         return tela
     

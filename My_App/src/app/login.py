@@ -144,6 +144,8 @@ class Login(UserControl):
         return valid
     
     def signin_user(self, email):
+        id = get_token(email)
+        self.page.session.set('user_id', id)
         self.page.go('/home')
 
     def btn_signin_clicked(self, e):

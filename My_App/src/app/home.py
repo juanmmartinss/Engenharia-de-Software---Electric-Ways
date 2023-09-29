@@ -44,7 +44,6 @@ class Home(UserControl):
         pass
 
     def build(self):
-        
         return Column([
 
                 Dropdown(

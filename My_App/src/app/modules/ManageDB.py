@@ -11,6 +11,17 @@ def get_user(email):
         return results
 
 
+def get_token(email):
+        db = SQLiteDB()
+        db.connect()
+
+        cmd = "SELECT id FROM USUARIO WHERE email = ?"
+        results = db.execute_query(cmd, (email,))
+
+        db.close()
+        return results
+
+
 def add_user(username, email, password):
         db = SQLiteDB()
         db.connect()
