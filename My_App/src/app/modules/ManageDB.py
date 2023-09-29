@@ -22,6 +22,17 @@ def get_token(email):
         return results
 
 
+def get_profile(id):
+        db = SQLiteDB()
+        db.connect()
+
+        cmd = "SELECT nome, email FROM USUARIO WHERE id = ?"
+        results = db.execute_query(cmd, (id,))
+
+        db.close()
+        return results
+
+
 def add_user(username, email, password):
         db = SQLiteDB()
         db.connect()

@@ -118,9 +118,17 @@ class Perfil(UserControl):
         btn_editar_rotas.on_click = self.btn_editar_rotas
         btn_editar_veiculos.on_click = self.btn_editar_veiculos
         btn_logout.on_click = self.btn_logout_clicked
-        
+        self.setup_perfil()
         tela = telaPerfil(self)
         return tela
+    
+    
+    def setup_perfil(self):
+        id = self.page.session.get('user_id')
+        results = get_profile(id[0][0])
+        user_name, user_email = results[0]
+        txt_email.value = user_email
+        txt_name.value = user_name
     
     
     def btn_editar_perfil(self, e):
