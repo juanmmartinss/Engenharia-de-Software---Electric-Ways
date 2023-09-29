@@ -22,7 +22,7 @@ ordenar_button = PopupMenuButton(
             content = Text("Mais próximos"),
         ),
         PopupMenuItem(
-            content = Text("Potência"),
+            content = Text("Gratuito"),
         ),
         PopupMenuItem(
             content = Text("Vagas"),
