@@ -3,12 +3,6 @@ from modules.SQLiteDB import *
 from modules.ManageDB import *
 from modules.UI import *
 
-back_button = IconButton(
-                        icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
-                        icon_color = colorBackground,
-                        icon_size = 20,
-                        tooltip = "Voltar",
-                    )
 
 icone_perfil = CircleAvatar(
                 foreground_image_url = "My_App/assets/images/logo.png",

@@ -13,3 +13,35 @@ botaoPadrao = ButtonStyle(
         shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
         
     )
+
+back_button = IconButton(
+                        icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
+                        icon_color = colorBackground,
+                        icon_size = 20,
+                        tooltip = "Voltar",
+                    )
+
+# card_postos = Container(
+#     #Column(
+#         Row([
+#             Text("Nome Posto", color = colorBackgroundClaro, size = 25),
+#         ],
+#             alignment = MainAxisAlignment.CENTER
+#         ),
+        
+#         Row([
+#             Text("Dist", color = colorBackgroundClaro, size = 20),
+#             Text("Pot", color = colorBackgroundClaro, size = 20),
+#             Text("Vagas", color = colorBackgroundClaro, size = 20),
+            
+#             IconButton(
+#                 icon = icons.LOCATION_ON_ROUNDED,
+#                 icon_color = colorBackgroundClaro,
+#                 icon_size = 20,
+#                 tooltip = "Ver no mapa",
+#             )
+#         ]),
+        
+#     #),
+#     bgcolor = colorBackground,
+# )

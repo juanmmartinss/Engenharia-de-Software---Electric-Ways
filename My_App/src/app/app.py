@@ -19,6 +19,6 @@ def main(page: Page):
     )
 
   page.on_route_change = route_change
-  page.go('/cadastro')
+  page.go('/pontos')
 
 app(target=main)

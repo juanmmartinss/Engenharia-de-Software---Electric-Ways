@@ -3,6 +3,8 @@ from cadastro import Cadastro
 from login import Login
 from home import Home
 from perfil import Perfil
+from pontos import Pontos
+
 from modules.UI import *
 
 def change_page(e, page):
@@ -80,6 +82,14 @@ def views_handler(page):
         route='/perfil',
         controls=[
           Perfil(page)
+        ],
+        bgcolor = colorBackgroundClaro
+      ),
+      
+      '/pontos':View(
+        route='/pontos',
+        controls=[
+          Pontos(page)
         ],
         bgcolor = colorBackgroundClaro
       ),
