@@ -7,7 +7,7 @@ from modules.UI import *
 logo = Image(src = "My_App/assets/images/logo.png", scale=0.8, col={"md": 4})
 
 
-txt_field_username = TextField(
+txt_name = TextField(
                             hint_text="Username",
                             hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT, 
@@ -21,7 +21,7 @@ txt_field_username = TextField(
                             )
 
 
-txt_field_email = TextField(
+txt_email = TextField(
                             hint_text="Email",
                             hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT, 
@@ -35,7 +35,7 @@ txt_field_email = TextField(
                             )
 
 
-txt_field_password = TextField(
+txt_password = TextField(
                             hint_text="Senha",
                             hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT,
@@ -51,7 +51,7 @@ txt_field_password = TextField(
                             )
 
 
-txt_field_password_confirm = TextField(
+txt_password_confirm = TextField(
                             hint_text="Confirmar senha",
                             hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT,
@@ -67,7 +67,7 @@ txt_field_password_confirm = TextField(
                             )
 
 
-cadastrar_button = ElevatedButton(
+btn_signup = ElevatedButton(
                                 content = Container(
                                     Text(value = "Cadastrar", size = 30),
                                 ),
@@ -76,7 +76,7 @@ cadastrar_button = ElevatedButton(
                                 width = 200,
                             )
 
-entrar_button = TextButton(
+btn_signin = TextButton(
                             content = Container(
                                 Text(value = "Entrar", 
                                     size = 20, 
@@ -93,17 +93,17 @@ def telaCadastro(self):
                         [
                             logo,
 
-                            txt_field_username, 
+                            txt_name, 
 
-                            txt_field_email,
+                            txt_email,
 
-                            txt_field_password, 
+                            txt_password, 
 
-                            txt_field_password_confirm,
+                            txt_password_confirm,
 
-                            cadastrar_button,
+                            btn_signup,
 
-                            entrar_button,
+                            btn_signin,
                             
                         ],
                         horizontal_alignment = CrossAxisAlignment.CENTER,
@@ -120,6 +120,8 @@ class Cadastro(UserControl):
     
 
     def build(self):
+        btn_signin.on_click = self.btn_signin_clicked
+        btn_signup.on_click = self.btn_signup_clicked
         tela = telaCadastro(self)  
         return tela
   
@@ -129,45 +131,45 @@ class Cadastro(UserControl):
         valid = True
 
         if not username:
-            txt_field_username.error_text = "please choose a username"
+            txt_name.error_text = "Insira um nome"
             valid = False
         else:
-            txt_field_username.error_text = ""
+            txt_name.error_text = ""
 
         if not email:
-            txt_field_email.error_text = "please enter your email"
+            txt_email.error_text = "Insira um email"
             valid = False
         elif get_user(email):
-            txt_field_email.error_text = "email already registered"
+            txt_email.error_text = "Email já cadastrado"
             valid = False
         else:
-            txt_field_email.error_text = "" 
+            txt_email.error_text = "" 
 
         if not password:
-            txt_field_password.error_text = "please choose a password"
+            txt_password.error_text = "Insira uma senha"
             valid = False
         else:
-            txt_field_password.error_text = ""
+            txt_password.error_text = ""
 
         if not password_confirm:
-            txt_field_password_confirm.error_text = "please confirm your password"
+            txt_password_confirm.error_text = "Confirme a senha"
             valid = False
-        elif txt_field_password.value != password_confirm:
-            txt_field_password_confirm.error_text = "passwords do not match"
+        elif txt_password.value != password_confirm:
+            txt_password_confirm.error_text = "Senha incorreta"
             valid = False
         else:
-            txt_field_password_confirm.error_text = ""
+            txt_password_confirm.error_text = ""
  
         self.update()
         return valid
 
 
-    def btn_sign_up_clicked(self, e):
+    def btn_signup_clicked(self, e):
         # obter campos de texto
-        username = txt_field_username.value
-        email = txt_field_email.value
-        password = txt_field_password.value
-        password_confirm = txt_field_password_confirm.value
+        username = txt_name.value
+        email = txt_email.value
+        password = txt_password.value
+        password_confirm = txt_password_confirm.value
 
         # verificar validade dos dados
         valid = self.validate_signup(username, email, password, password_confirm)
@@ -175,4 +177,7 @@ class Cadastro(UserControl):
             # cadastrar usuário
             add_user(username, email, password)
             self.page.go('/login')
-  
+            
+            
+    def btn_signin_clicked(self, e):
+        self.page.go('/login')

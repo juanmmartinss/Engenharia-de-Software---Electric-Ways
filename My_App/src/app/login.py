@@ -6,7 +6,7 @@ from modules.UI import *
 
 logo = Image(src="My_App/assets/images/logo.png", scale=0.8, col={"md": 4})
 
-txt_field_email = TextField(
+txt_email = TextField(
                             #label="Email",
                             hint_text="Email",
                             hint_style=TextStyle(color=colors.WHITE),
@@ -21,7 +21,7 @@ txt_field_email = TextField(
                         
                             )
 
-txt_field_password = TextField(
+txt_password = TextField(
                             hint_text="Senha",
                             hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT,
@@ -36,7 +36,7 @@ txt_field_password = TextField(
                             col={"md": 4}
                             )
 
-txt_field_fpass = Column([
+txt_fpass = Column([
                         TextButton(
                             content = Container(
                             Text(value = "Esqueceu a senha?", size = 14, color = colors.WHITE)
@@ -48,7 +48,7 @@ txt_field_fpass = Column([
                     )
 
 
-login_button = ElevatedButton(
+btn_signin = ElevatedButton(
                             content = Container(
                                 Text(value = "Entrar", size = 30),
                                 ),
@@ -57,7 +57,7 @@ login_button = ElevatedButton(
                             width = 200,
                             )
 
-cadastrar_button = TextButton(
+btn_signup = TextButton(
                             content = Container(
                                 Text(value = "Cadastre-se", 
                                      size = 20, 
@@ -74,24 +74,24 @@ def telaLogin(self):
                 [
                     logo,
 
-                    txt_field_email,
+                    txt_email,
 
-                    txt_field_password,
+                    txt_password,
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER
             ),
 
             Column(
                 [
-                    txt_field_fpass
+                    txt_fpass
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
             ),
 
             Column([
-                    login_button,
+                    btn_signin,
 
-                    cadastrar_button
+                    btn_signup
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER,
             ),
@@ -109,6 +109,8 @@ class Login(UserControl):
 
 
     def build(self):
+        btn_signin.on_click = self.btn_signin_clicked
+        btn_signup.on_click = self.btn_signup_clicked
         tela = telaLogin(self)
         return tela
     
@@ -117,25 +119,25 @@ class Login(UserControl):
         valid = True
 
         if not email:
-            txt_field_email.error_text = "please enter your email"
+            txt_email.error_text = "Insira um email"
             valid = False
         elif not get_user(email):
-            txt_field_email.error_text = "email not registered"
+            txt_email.error_text = "Email não cadastrado"
             valid = False
         else:
-            txt_field_email.error_text = "" 
+            txt_email.error_text = "" 
 
         if not password:
-            txt_field_password.error_text = "please enter your password"
+            txt_password.error_text = "Insira uma senha"
             valid = False
         else:
-            txt_field_password.error_text = ""
+            txt_password.error_text = ""
 
         if(valid):
             results = get_user(email)
             user_email, user_password = results[0]
             if(password != user_password):
-                txt_field_password.error_text = "wrong password"
+                txt_password.error_text = "Senha incorreta"
                 valid = False
 
         self.update()
@@ -144,13 +146,18 @@ class Login(UserControl):
     def signin_user(self, email):
         self.page.go('/home')
 
-    def btn_sign_in_clicked(self, e):
+    def btn_signin_clicked(self, e):
         # obter campos de texto
-        email = txt_field_email.value
-        password = txt_field_password.value
+        email = txt_email.value
+        password = txt_password.value
 
         # verificar validade dos dados
         valid = self.validate_signin(email, password)
         if(valid):
             # entrar com usuário
             self.signin_user(email)
+      
+      
+    def btn_signup_clicked(self, e): 
+        self.page.go('/cadastro')     
+    

@@ -62,7 +62,7 @@ btn_editar_rotas = ElevatedButton(
     bgcolor = colors.TRANSPARENT,
 )
 
-btn_sair = ElevatedButton(
+btn_logout = ElevatedButton(
     content = Row(
         [
             Icon(name = icons.EXIT_TO_APP_ROUNDED, color = colorBackground),
@@ -98,7 +98,7 @@ def telaPerfil(self):
                     btn_editar_perfil,
                     btn_editar_veiculos,
                     btn_editar_rotas,
-                    btn_sair,
+                    btn_logout,
                 ],
                 horizontal_alignment=CrossAxisAlignment.STRETCH,
             ),
@@ -114,8 +114,25 @@ class Perfil(UserControl):
 
 
     def build(self):
+        btn_editar_perfil.on_click = self.btn_editar_perfil
+        btn_editar_rotas.on_click = self.btn_editar_rotas
+        btn_editar_veiculos.on_click = self.btn_editar_veiculos
+        btn_logout.on_click = self.btn_logout_clicked
         tela = telaPerfil(self)
         return tela
+    
+    
+    def btn_editar_perfil(self, e):
+        pass
+    
+    
+    def btn_editar_veiculos(self, e):
+        pass
+    
+    
+    def btn_editar_rotas(self, e):
+        pass
+    
     
     def btn_logout_clicked(self, e):
         self.page.go('/login')
