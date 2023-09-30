@@ -4,6 +4,8 @@ from login import Login
 from home import Home
 from perfil import Perfil
 from pontos import Pontos
+from meusVeiculos import MeusVeiculos
+from modules.UI import *
 
 from modules.UI import *
 
@@ -90,6 +92,14 @@ def views_handler(page):
         route='/pontos',
         controls=[
           Pontos(page)
+        ],
+        bgcolor = colorBackgroundClaro
+      ),
+
+      '/meusVeiculos':View(
+        route='/meusVeiculos',
+        controls=[
+          MeusVeiculos(page)
         ],
         bgcolor = colorBackgroundClaro
       ),

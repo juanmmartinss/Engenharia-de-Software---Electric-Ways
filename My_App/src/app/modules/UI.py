@@ -1,5 +1,4 @@
 from flet import *
-import flet as ft
 
 colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
@@ -22,33 +21,36 @@ back_button = IconButton(
                         tooltip = "Voltar",
                     )
 
-card = ft.Card(
-            content=ft.Container(
-                content=ft.Column(
+cardPontos = Card(
+            content = Container(
+                content = Column(
                     [
-                        ft.ListTile(
-                            leading=ft.Icon(ft.icons.LOCATION_ON_ROUNDED),
-                            title=ft.Text("Posto BR"),
-                            subtitle=ft.Text(
+                        ListTile(
+                            leading = Icon(icons.LOCATION_ON_ROUNDED),
+                            title = Text("Posto BR"),
+                            subtitle = Text(
                                 "avenida cidade jardim, 1000"
                             ),
-                            trailing=ft.PopupMenuButton(
-                                icon=icons.MORE_VERT,
-                                items=[
-                                    ft.PopupMenuItem(
-                                        content=ft.Text("Ver no mapa"),
+                            trailing = PopupMenuButton(
+                                icon = icons.MORE_VERT,
+                                items = [
+                                    PopupMenuItem(
+                                        content = Text("Ver no mapa"),
                                     ),
-                                    ft.PopupMenuItem(
-                                        content=ft.Text("Mais informações"),
+                                    PopupMenuItem(
+                                        content = Text("Mais informações"),
                                     ),
                                     ],
                                     
                                 ),
-                            #alignment=ft.MainAxisAlignment.END,
                         ),
-                        ft.Row(
-                            [ft.Text("Distancia: 15km"), ft.Text("Vagas: 3") ,ft.TextButton("Start", icon=icons.PLAY_ARROW_ROUNDED)],
-                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
+                        Row(
+                            [
+                                Text("Distancia: 15km"), 
+                                Text("Vagas: 3"),
+                                TextButton("Start", icon = icons.PLAY_ARROW_ROUNDED)
+                            ],
+                            alignment = MainAxisAlignment.SPACE_EVENLY,
                         ),
                         
                     ],
@@ -58,90 +60,74 @@ card = ft.Card(
             )
         )
 
-# card_postos = Container(
-#     #Column(
-#         Row([
-#             Text("Nome Posto", color = colorBackgroundClaro, size = 25),
-#         ],
-#             alignment = MainAxisAlignment.CENTER
-#         ),
-        
-#         Row([
-#             Text("Dist", color = colorBackgroundClaro, size = 20),
-#             Text("Pot", color = colorBackgroundClaro, size = 20),
-#             Text("Vagas", color = colorBackgroundClaro, size = 20),
-            
-#             IconButton(
-#                 icon = icons.LOCATION_ON_ROUNDED,
-#                 icon_color = colorBackgroundClaro,
-#                 icon_size = 20,
-#                 tooltip = "Ver no mapa",
-#             )
-#         ]),
-        
-#     #),
-#     bgcolor = colorBackground,
-# )
+
+cardVeiculos = Card(
+            content = Container(
+                content = Column(
+                    [
+                        ListTile(
+                            leading = Icon(icons.ELECTRIC_CAR_ROUNDED, size = 50),
+                            title = Text("Audi RS", size = 25),
+                            subtitle = Text("Placa: ABC-1234", size = 20),
+                            trailing = PopupMenuButton(
+                                icon = icons.MORE_VERT,
+                                items = [
+                                    PopupMenuItem(
+                                        content = TextButton("Editar veículo"),
+                                    ),
+                                    PopupMenuItem(
+                                        content = TextButton("Excluir veículo"),
+                                    ),
+                                    ],
+                                    
+                                ),
+                        ),
+
+                        Row(
+                            [
+                            Text("Audi", size = 20)
+                            ],
+                            alignment = MainAxisAlignment.START,
+                        ),
 
 
+                        Row(
+                            [
+                            Text("Cor: Vermelho", size = 20)
+                            ],
+                            alignment = MainAxisAlignment.START,
+                        ),
 
+                        Row(
+                            [
+                            Text("Potência: 0", size = 20)
+                            ],
+                            alignment = MainAxisAlignment.START,
+                        ),
 
-# cardmenu = Row()
+                        Row(
+                            [
+                            Text("Carga: 90%", size = 20, weight = FontWeight.BOLD),
+                            IconButton(icon = icons.EDIT_ROUNDED, icon_size = 20)
+                            ],
+                            alignment = MainAxisAlignment.CENTER,
+                        ),
 
-# for x in 5:
-# 	cardmenu.controls.append(
-# 		Card(
-# 		elevation=20,
-# 		content=Container(
-# 		bgcolor="white",
-# 		width=150,
-# 		border_radius = border_radius.all(30),
-# 		content=Column([
-# 			Image(
-# 			src=x['image'],
-# 			border_radius = border_radius.all(30),
-# 			width=150,
-# 			height=110,
-# 			fit=ImageFit.CONTAIN
-# 				),
-# 			Container(
-# 			padding = padding.all(10),
-# 			content=Column([
-# 			Text(x['title'],size=16,weight="bold"),
-# 			Text(x['desc'],size=13),
-
-# 			# FOR PRICE AND BUTTON
-# 			Row([
-# 			Text(x['price'],size=23,weight="bold"),
-# 			IconButton(icon="add")
-# 				],alignment="spaceBetween")
-# 			])
-# 			)
-
-# 			])	
-
-# 		)
-
-# 		)
-
-# 		)
-
-# sectioncard = Container(
-# 	padding = padding.only(top=20),
-# 	bgcolor= "#E3002A",
-# 	content=Column([
-# 	Container(
-# 	margin = margin.only(left=10),
-# 	content=Text("In Restaurant",
-# 		color="white",
-# 		size=30,weight="bold"
-# 		)
-# 	),
-# 	Row([
-#        cardmenu
-
-# 		],scroll="auto")
-
-# 		])
-
-# 	)
+                        Row(
+                            [
+                            TextButton(
+                                content = Container(
+                                    Text(value = "Selecionar", size = 20, color = colors.BLACK),
+                                    ),
+                                col = {"md": 4}, 
+                            ),
+                            ],
+                            alignment = MainAxisAlignment.CENTER,
+                        )                            
+                    ],
+                ),
+                width = 400,
+                padding = 10,
+            ),
+            color = colors.WHITE,
+        )
