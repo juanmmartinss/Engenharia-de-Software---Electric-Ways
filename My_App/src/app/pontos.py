@@ -2,6 +2,8 @@ from flet import *
 from modules.SQLiteDB import *
 from modules.ManageDB import *
 from modules.UI import *
+import threading
+
 
 txt_name = Text(
                 "Pontos de Carregamento",
@@ -29,6 +31,32 @@ ordenar_button = PopupMenuButton(
     ],
 )
 
+class State:
+    i = 0
+
+s = State()
+sem = threading.Semaphore()
+
+def on_scroll(e: OnScrollEvent):
+    if e.pixels >= e.max_scroll_extent - 100:
+        if sem.acquire(blocking=False):
+            try:
+                for i in range(0, 10):
+                    column_with_scroll.controls.append(Text(f"Text line {s.i}", key=str(s.i)))
+                    s.i += 1
+                column_with_scroll.update()
+            finally:
+                sem.release()
+                
+column_with_scroll = Column(
+                [
+                    card,card,card,card,card,card,card,card,card,card
+                ],
+                horizontal_alignment=CrossAxisAlignment.CENTER,
+                scroll = ScrollMode.ALWAYS,
+                on_scroll_interval=0,
+                on_scroll=on_scroll,
+            ),
 
 def telaPerfil(self):
     return ResponsiveRow(
@@ -55,12 +83,7 @@ def telaPerfil(self):
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
             ),
-            Column(
-                [
-                    card,card,card,card,
-                ],
-                horizontal_alignment=CrossAxisAlignment.CENTER
-            ),
+            column_with_scroll,
         ]
     )
 

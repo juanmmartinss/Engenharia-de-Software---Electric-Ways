@@ -50,8 +50,8 @@ card = ft.Card(
                             [ft.Text("Distancia: 15km"), ft.Text("Vagas: 3") ,ft.TextButton("Start", icon=icons.PLAY_ARROW_ROUNDED)],
                             alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                         ),
+                        
                     ],
-                    scroll = 'auto'
                 ),
                 width=400,
                 padding=10,
