@@ -3,7 +3,6 @@ from modules.SQLiteDB import *
 from modules.ManageDB import *
 from modules.UI import *
 
-
 txt_name = Text(
                 "Pontos de Carregamento",
                 color = colorBackground,
@@ -51,9 +50,16 @@ def telaPerfil(self):
             Column(
                 [
                     ordenar_button,
+                    
                     #card_postos,
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
+            ),
+            Column(
+                [
+                    card,card,card,card,
+                ],
+                horizontal_alignment=CrossAxisAlignment.CENTER
             ),
         ]
     )
