@@ -3,8 +3,6 @@ from modules.SQLiteDB import *
 from modules.ManageDB import *
 from modules.UI import *
 
-
-
 txt_name = Text(
                 "Meus Veículos",
                 color = colorBackground,
@@ -30,10 +28,9 @@ def telaPerfil(self):
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER
             ),
-
             Row(
                 [
-                    cardVeiculos, cardVeiculos
+                    cardVeiculos, cardVeiculos,
                 ],
                 alignment=MainAxisAlignment.CENTER,
             ),            

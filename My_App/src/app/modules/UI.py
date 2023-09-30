@@ -4,6 +4,8 @@ colorBackground = '#00001E'
 colorBackground2 = '#1e19a8'
 colorBackgroundClaro = '#F0F0FF'
 
+carro = Image(src="My_App/assets/images/carro.png", scale=0.8, col={"md": 4})
+
 botaoPadrao = ButtonStyle(
         color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
         bgcolor = colorBackground, 
@@ -90,6 +92,11 @@ cardVeiculos = Card(
                             alignment = MainAxisAlignment.START,
                         ),
 
+                        Row(
+                            [
+                                carro,
+                            ]
+                        ),
 
                         Row(
                             [
