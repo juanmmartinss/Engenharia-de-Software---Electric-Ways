@@ -1,2 +1,2 @@
 #!/bin/bash
-python My_App\src\app\app.p
+python My_App\src\app\app.py
