@@ -77,13 +77,11 @@ cardRecentes = Card(
                                     
                                 ),
                     ),
-                
-                    
                 ],
             ),
             width=400,
             padding=5,
-             bgcolor=colors.WHITE,
+            bgcolor=colors.WHITE,
             border_radius=30,
         )
 )
