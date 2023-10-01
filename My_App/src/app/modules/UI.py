@@ -63,4 +63,24 @@ cardPontos = Card(
         )
 
 
+cardRecentes = Card(
+            content = Container(
+            content = Column(
+                [       
+                    ListTile(
+                        leading = Icon(icons.ACCESS_TIME_ROUNDED),
+                        title = Text("Araras",),
+                        subtitle = Text(
+                            "São Paulo, Brasil"
+                        ),
+                    ),
+                    
+                ],
+            ),
+            width=400,
+            padding=5,
+            border_radius=30,
+        )
+)
+
 

@@ -105,7 +105,7 @@ def views_handler(page):
         bgcolor = colorBackgroundClaro
       ),
       
-      'searchDestination':View(
+      '/searchDestination':View(
         route='/searchDestination',
         controls=[
           SearchDestination(page)

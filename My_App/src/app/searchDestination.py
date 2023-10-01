@@ -4,13 +4,36 @@ from modules.FacadeBD import *
 from modules.UI import *
 
 
-txt_name = Text(
-                "Meus Veículos",
+txt_busca = TextField(
+                hint_text="Pesquise aqui",
+                hint_style=TextStyle(color=colors.GREY),
+                bgcolor = colors.TRANSPARENT, 
+                border_color = colors.GREY, 
+                border_width = 1,
+                prefix_icon = "search_rounded",
+                border_radius = 20,
+                text_size = 15,
+                color = colors.GREY,
+                col = {"md": 4}
+            )
+
+txt_recentes = Text(
+                "Recentes",
                 color = colorBackground,
-                size = 25,
+                size = 18,
                 weight = FontWeight.BOLD,
             )
 
+infoButton = Container(
+    IconButton(
+        icon = icons.INFO_ROUNDED,
+        icon_color = colorBackground,
+        icon_size = 20,
+        tooltip = "Ajuda e Informações"
+    ),
+
+    alignment = alignment.top_right
+)
 
 
 def destino(self):
@@ -21,7 +44,28 @@ def destino(self):
                     back_button
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
-            ),           
+            ),
+            Column(
+                [
+                    txt_busca
+                ],
+                horizontal_alignment=CrossAxisAlignment.CENTER
+            ),
+            Column(
+                [
+                    txt_recentes,
+                    infoButton
+                ], 
+                #alignment=alignment.top_left,
+                #horizontal_alignment=CrossAxisAlignment.START
+            ),
+            Column(
+                [
+                    cardRecentes, cardRecentes,cardRecentes,cardRecentes,cardRecentes, cardRecentes,cardRecentes
+                ]
+                
+            ),
+            
         ]
     )
 
