@@ -103,5 +103,9 @@ class Pontos(UserControl):
         self.page = page
         
     def build(self):
+        back_button.on_click = self.btn_back
         tela = telaPerfil(self)
         return tela
+    
+    def btn_back(self, e):
+        self.page.go('/home')

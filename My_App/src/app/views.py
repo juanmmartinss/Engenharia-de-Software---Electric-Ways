@@ -18,7 +18,7 @@ def change_page(e, page):
     # page.go('/rotas')
   elif e.control.selected_index == 2:
     pass
-    # page.go('/carregamento')
+    page.go('/pontos')
   elif e.control.selected_index == 3:
     page.go('/perfil')
   elif e.control.selected_index == 4: 

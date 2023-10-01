@@ -114,6 +114,7 @@ class Perfil(UserControl):
 
 
     def build(self):
+        back_button.on_click = self.btn_back
         btn_editar_perfil.on_click = self.btn_editar_perfil
         btn_editar_rotas.on_click = self.btn_editar_rotas
         btn_editar_veiculos.on_click = self.btn_editar_veiculos
@@ -130,13 +131,15 @@ class Perfil(UserControl):
         txt_email.value = user_email
         txt_name.value = user_name
     
+    def btn_back(self, e):
+        self.page.go('/home')
     
     def btn_editar_perfil(self, e):
         pass
     
     
     def btn_editar_veiculos(self, e):
-        pass
+        self.page.go('/meusVeiculos')
     
     
     def btn_editar_rotas(self, e):
