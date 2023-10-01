@@ -68,17 +68,22 @@ cardRecentes = Card(
             content = Column(
                 [       
                     ListTile(
-                        leading = Icon(icons.ACCESS_TIME_ROUNDED),
-                        title = Text("Araras",),
+                        leading = Icon(icons.LOCATION_ON_ROUNDED),
+                        title = Text("Araras", color = colors.BLACK),
                         subtitle = Text(
                             "São Paulo, Brasil"
                         ),
+                        trailing = IconButton(tooltip="Start", icon = icons.PLAY_ARROW_ROUNDED
+                                    
+                                ),
                     ),
+                
                     
                 ],
             ),
             width=400,
             padding=5,
+             bgcolor=colors.WHITE,
             border_radius=30,
         )
 )
