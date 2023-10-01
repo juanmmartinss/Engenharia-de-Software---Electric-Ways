@@ -116,7 +116,7 @@ sectioncard = Container(
 	#content=txt_name,
 	),
 	Row([
-       cardmenu
+        cardmenu
 
 		],scroll="auto")
 

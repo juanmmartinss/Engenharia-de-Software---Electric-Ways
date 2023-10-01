@@ -31,8 +31,6 @@ infoButton = Container(
         icon_size = 20,
         tooltip = "Ajuda e Informações"
     ),
-
-    alignment = alignment.top_right
 )
 
 
@@ -43,7 +41,6 @@ def destino(self):
                 [
                     back_button
                 ],
-                horizontal_alignment=CrossAxisAlignment.START
             ),
             Column(
                 [
@@ -51,12 +48,11 @@ def destino(self):
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER
             ),
-            Column(
+            Row(
                 [
                     txt_recentes,
                     infoButton
-                ], 
-                #alignment=alignment.top_left,
+                ],
                 #horizontal_alignment=CrossAxisAlignment.START
             ),
             Column(

@@ -31,32 +31,97 @@ ordenar_button = PopupMenuButton(
     ],
 )
 
-# class State:
-#     i = 0
+cardmenu = Column()
 
-# s = State()
-# sem = threading.Semaphore()
+menu_veiculos = [
+{
+	"distance":"Distancia: 12km",
+	"spots":"Vagas: 3"
+},
+{
+	"distance":"Distancia: 12km",
+	"spots":"Vagas: 3"
+},
+{
+	"distance":"Distancia: 12km",
+	"spots":"Vagas: 3"
+},
+{
+	"distance":"Distancia: 12km",
+	"spots":"Vagas: 3"
+},
+{
+	"distance":"Distancia: 12km",
+	"spots":"Vagas: 3"
+},
+{
+	"distance":"Distancia: 12km",
+	"spots":"Vagas: 3"
+},
+]
 
-# def on_scroll(e: OnScrollEvent):
-#     if e.pixels >= e.max_scroll_extent - 100:
-#         if sem.acquire(blocking=False):
-#             try:
-#                 for i in range(0, 10):
-#                     column_with_scroll.controls.append(Text(f"Text line {s.i}", key=str(s.i)))
-#                     s.i += 1
-#                 column_with_scroll.update()
-#             finally:
-#                 sem.release()
-                
-# column_with_scroll = Column(
-#                 [
-#                     card,card,card,card,card,card,card,card,card,card
-#                 ],
-#                 horizontal_alignment=CrossAxisAlignment.CENTER,
-#                 scroll = ScrollMode.ALWAYS,
-#                 on_scroll_interval=0,
-#                 on_scroll=on_scroll,
-#             ),
+for x in menu_veiculos:
+	cardmenu.controls.append(
+		Card(
+		elevation=20,
+		content=Container(
+		bgcolor="white",
+		width=300,
+		border_radius = border_radius.all(30),
+		content=Column([
+            ListTile(
+                            leading = Icon(icons.LOCATION_ON_ROUNDED),
+                            title = Text("Posto BR"),
+                            subtitle = Text(
+                                "avenida cidade jardim, 1000"
+                            ),
+                            trailing = PopupMenuButton(
+                                icon = icons.MORE_VERT,
+                                items = [
+                                    PopupMenuItem(
+                                        content = Text("Ver no mapa"),
+                                    ),
+                                    PopupMenuItem(
+                                        content = Text("Mais informações"),
+                                    ),
+                                    ],
+                                    
+                                ),
+                        ),
+			Container(
+			padding = padding.all(10),
+			content=Column([
+			Text(x['distance'],size=16,weight="bold"),
+			Text(x['spots'],size=13),
+
+            Row(
+                            [
+                                Text("Distancia: 15km"), 
+                                Text("Vagas: 3"),
+                                TextButton("Start", icon = icons.PLAY_ARROW_ROUNDED)
+                            ],
+                            alignment = MainAxisAlignment.SPACE_EVENLY,
+                        ),
+            
+			])
+			)
+
+			])	
+
+		)
+
+		)
+
+		)
+
+sectioncard = Container(
+	Column(
+        [
+            cardmenu
+        ],
+        scroll=ScrollMode.ALWAYS,
+    )
+	)
 
 def telaPerfil(self):
     return ResponsiveRow(
@@ -84,14 +149,16 @@ def telaPerfil(self):
                 horizontal_alignment=CrossAxisAlignment.START
             ),
 
-            Column([
-                cardPontos,cardPontos,cardPontos,cardPontos
-            ],
-                horizontal_alignment=CrossAxisAlignment.CENTER,
-                scroll = ScrollMode.ALWAYS,
-                on_scroll_interval=0,
+            sectioncard,
+            
+            # Column([
+            #     cardPontos,cardPontos,cardPontos,cardPontos
+            # ],
+            #     horizontal_alignment=CrossAxisAlignment.CENTER,
+            #     scroll = ScrollMode.ALWAYS,
+            #     on_scroll_interval=0,
 
-            ),
+            # ),
         ]
     )
 
