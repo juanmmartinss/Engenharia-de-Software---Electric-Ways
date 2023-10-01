@@ -5,6 +5,7 @@ from home import Home
 from perfil import Perfil
 from pontos import Pontos
 from meusVeiculos import MeusVeiculos
+from searchDestination import SearchDestination
 from modules.UI import *
 
 from modules.UI import *
@@ -100,6 +101,14 @@ def views_handler(page):
         route='/meusVeiculos',
         controls=[
           MeusVeiculos(page)
+        ],
+        bgcolor = colorBackgroundClaro
+      ),
+      
+      'searchDestination':View(
+        route='/searchDestination',
+        controls=[
+          SearchDestination(page)
         ],
         bgcolor = colorBackgroundClaro
       ),
