@@ -11,7 +11,6 @@ txt_name = Text(
             )
 
 
-
 def telaPerfil(self):
     return ResponsiveRow(
         [

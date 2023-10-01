@@ -94,13 +94,6 @@ cardVeiculos = Card(
 
                         Row(
                             [
-                                carro,
-                            ],
-                            alignment = MainAxisAlignment.START,
-                        ),
-
-                        Row(
-                            [
                             Text("Cor: Vermelho", size = 20)
                             ],
                             alignment = MainAxisAlignment.START,
