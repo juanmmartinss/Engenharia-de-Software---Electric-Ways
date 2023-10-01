@@ -1,6 +1,6 @@
 from flet import *
 from modules.SQLiteDB import *
-from modules.ManageDB import *
+from modules.FacadeBD import *
 from modules.UI import *
 
 txt_name = Text(
@@ -29,7 +29,6 @@ def telaPerfil(self):
             ),
             Row(
                 [
-                    cardVeiculos, cardVeiculos,
                 ],
                 alignment=MainAxisAlignment.CENTER,
             ),            
@@ -46,7 +45,88 @@ class MeusVeiculos(UserControl):
     def build(self):
         back_button.on_click = self.btn_back
         tela = telaPerfil(self)
+        
+        id = self.page.session.get('user_id')
+        results = get_vehicles(id[0][0])
+        for veic in results:
+            nome, modelo, placa, cor, range = veic
+            new_card = self.criar_card(nome, modelo, placa, cor, range)
+            tela.controls[2].controls.append(new_card)
+        
         return tela
+            
     
     def btn_back(self, e):
         self.page.go('/perfil')
+        
+        
+    def criar_card(self, nome, modelo, placa, cor, range):
+        return Card(
+            content = Container(
+                content = Column(
+                    [
+                        ListTile(
+                            leading = Icon(icons.ELECTRIC_CAR_ROUNDED, size = 50),
+                            title = Text(nome, size = 25),
+                            subtitle = Text(placa, size = 20),
+                            trailing = PopupMenuButton(
+                                icon = icons.MORE_VERT,
+                                items = [
+                                    PopupMenuItem(
+                                        content = TextButton("Editar veículo"),
+                                    ),
+                                    PopupMenuItem(
+                                        content = TextButton("Excluir veículo"),
+                                    ),
+                                    ],
+                                    
+                                ),
+                        ),
+
+                        Row(
+                            [
+                            Text(f"Modelo: {modelo}", size = 20)
+                            ],
+                            alignment = MainAxisAlignment.START,
+                        ),
+
+                        Row(
+                            [
+                            Text(f"Cor: {cor}", size = 20)
+                            ],
+                            alignment = MainAxisAlignment.START,
+                        ),
+
+                        Row(
+                            [
+                            Text(f"Range: {range}Km", size = 20)
+                            ],
+                            alignment = MainAxisAlignment.START,
+                        ),
+
+                        Row(
+                            [
+                            TextButton(
+                                content = Container(
+                                    Text(value = "Selecionar", size = 20, color = colors.BLACK),
+                                    ),
+                                col = {"md": 4}, 
+                            ),
+                            ],
+                            alignment = MainAxisAlignment.CENTER,
+                        )                            
+                    ],
+                ),
+                width = 400,
+                padding = 10,
+            ),
+            color = colors.WHITE,
+        )
+        
+""" Row(
+        [
+        Text("Carga: 90%", size = 20, weight = FontWeight.BOLD),
+        IconButton(icon = icons.EDIT_ROUNDED, icon_size = 20)
+        ],
+        alignment = MainAxisAlignment.CENTER,
+    ), """

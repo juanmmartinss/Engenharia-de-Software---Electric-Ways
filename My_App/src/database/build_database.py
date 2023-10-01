@@ -30,6 +30,8 @@ cur.execute(
     '''CREATE TABLE PERFIL_VEIC (
         id INTEGER NOT NULL PRIMARY KEY,
         nome TEXT NOT NULL,
+        placa TEXT NOT NULL,
+        cor TEXT NOT NULL,
         id_usuario INTEGER NOT NULL,
         id_modelo INTEGER NOT NULL,
         FOREIGN KEY (id_usuario) REFERENCES USUARIO(id),
@@ -83,7 +85,8 @@ cur.execute(
 
 # INSERIR VEÍCULOS
 df = pd.read_csv('raw_data/cars_formatado.csv')
-df.to_sql('MODELO_VEIC',con,if_exists='replace',index=False)
+df.drop('id', axis=1, inplace=True)
+df.to_sql('MODELO_VEIC',con,if_exists='append',index=False)
 con.commit()
 con.close()
 

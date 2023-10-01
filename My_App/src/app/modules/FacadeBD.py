@@ -33,6 +33,20 @@ def get_profile(id):
         return results
 
 
+def get_vehicles(id):
+        db = SQLiteDB()
+        db.connect()
+
+        cmd = """SELECT pv.nome, mv.nome, pv.placa, pv.cor, mv.range
+                FROM PERFIL_VEIC AS pv
+                LEFT JOIN MODELO_VEIC AS mv ON mv.id = pv.id_modelo
+                WHERE pv.id_usuario = ?"""
+        results = db.execute_query(cmd, (id,))
+
+        db.close()
+        return results
+
+
 def add_user(username, email, password):
         db = SQLiteDB()
         db.connect()

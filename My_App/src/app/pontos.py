@@ -1,6 +1,6 @@
 from flet import *
 from modules.SQLiteDB import *
-from modules.ManageDB import *
+from modules.FacadeBD import *
 from modules.UI import *
 import threading
 
