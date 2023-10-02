@@ -19,6 +19,7 @@ add_button = IconButton(
             )
 # -------------------------------------------------------------------------------------------------------
 
+imagem_carro = Image(src="My_App/assets/images/carro.png", scale=0.4)
 
 def telaPerfil(self):
     return ResponsiveRow(
@@ -103,6 +104,7 @@ class MeusVeiculos(UserControl):
                             ),
                             content_padding = padding.all(0),
                         ),
+                imagem_carro,
                 Container(
                         padding = padding.all(10),
                         content=Column([
