@@ -2,6 +2,7 @@ from flet import *
 from modules.SQLiteDB import *
 from modules.FacadeBD import *
 from modules.UI import *
+from modules.crypto import *
 
 
 logo = Image(src = "My_App/assets/images/logo.png", scale=0.8, col={"md": 4})
