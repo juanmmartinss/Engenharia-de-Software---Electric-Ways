@@ -53,7 +53,7 @@ def destino(self):
                     txt_recentes,
                     infoButton
                 ],
-                #horizontal_alignment=CrossAxisAlignment.START
+                alignment=MainAxisAlignment.SPACE_BETWEEN
             ),
             Column(
                 [
