@@ -66,6 +66,8 @@ btn_signup = TextButton(
                             col={"md": 4}, 
                             )
 
+markdown_conectado = Checkbox(label="Mantenha-me conectado")
+
 def telaLogin(self):
     return ResponsiveRow(
         [
@@ -83,6 +85,7 @@ def telaLogin(self):
 
             Column(
                 [
+                    markdown_conectado,
                     txt_fpass
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
@@ -95,6 +98,7 @@ def telaLogin(self):
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER,
             ),
+        
         ],
 
         vertical_alignment=CrossAxisAlignment.CENTER,
