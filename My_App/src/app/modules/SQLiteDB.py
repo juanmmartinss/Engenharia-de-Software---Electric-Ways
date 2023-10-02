@@ -12,7 +12,7 @@ class SQLiteDB:
     def connect(self):
         if not self.conn:
             try:
-                self.conn = sqlite3.connect("My_App\\src\\database\\database.db")
+                self.conn = sqlite3.connect("My_App/src/database/database.db")
                 self.conn.execute('PRAGMA foreign_keys = ON')
                 self.conn.commit()
             except sqlite3.Error as e:
