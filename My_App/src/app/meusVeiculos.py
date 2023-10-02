@@ -22,19 +22,19 @@ cardmenu = Row()
 
 menu_veiculos = [
 {
-	"image":"/home/marco/unifesp/engenharia de software/Engenharia-de-Software---Electric-Ways/My_App/assets/images/carro.png",
+	"image":"My_App/assets/images/carro.png",
 	"title":"Autonomia: 470km",
 	"battery":"Bateria: 69%",
 	"desc":"Tempo de regarga: 23min - carga rápida"
 },
 {
-	"image":"/home/marco/unifesp/engenharia de software/Engenharia-de-Software---Electric-Ways/My_App/assets/images/carro.png",
+	"image":"My_App/assets/images/carro.png",
 	"title":"Autonomia: 470km",
 	"battery":"Bateria: 69%",
 	"desc":"Tempo de regarga: 23min - carga rápida"
 },
 {
-	"image":"/home/marco/unifesp/engenharia de software/Engenharia-de-Software---Electric-Ways/My_App/assets/images/carro.png",
+	"image":"My_App/assets/images/carro.png",
 	"title":"Autonomia: 470km",
 	"battery":"Bateria: 69%",
 	"desc":"Tempo de regarga: 23min - carga rápida"
@@ -130,7 +130,12 @@ def telaPerfil(self):
         [
             Column(
                 [
-                    back_button
+                     Row([
+                          back_button,
+                          add_button
+                     ],
+                     alignment=MainAxisAlignment.SPACE_BETWEEN
+                     )
                 ],
                 horizontal_alignment=CrossAxisAlignment.START
             ),
@@ -141,12 +146,7 @@ def telaPerfil(self):
                 ],
                 horizontal_alignment=CrossAxisAlignment.CENTER
             ),
-            sectioncard, #new card added
-            # Row(
-            #     [
-            #     ],
-            #     alignment=MainAxisAlignment.CENTER,
-            # ),            
+            sectioncard,      
         ]
     )
 
