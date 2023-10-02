@@ -87,7 +87,7 @@ class MeusVeiculos(UserControl):
             content=Column([
                 ListTile(
                         leading = Icon(icons.ELECTRIC_CAR_ROUNDED, size = 50),
-                        title = Text(modelo, size = 25),
+                        title = Text(modelo, max_lines = 3, size = 20, weight = FontWeight.BOLD, selectable=True),
                         subtitle = Text(f"Placa: {placa}", size = 20),
                         trailing = PopupMenuButton(
                             icon = icons.MORE_VERT,
@@ -101,6 +101,7 @@ class MeusVeiculos(UserControl):
                                 ],
                                 
                             ),
+                            content_padding = padding.all(0),
                         ),
                 Container(
                         padding = padding.all(10),
@@ -122,8 +123,10 @@ class MeusVeiculos(UserControl):
                         ])
                 )
 
-                ])	
-
+                ],
+                spacing=0,
+                ),
+            
             )
 
             )
