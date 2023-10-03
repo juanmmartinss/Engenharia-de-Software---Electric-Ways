@@ -9,7 +9,7 @@ logo = Image(src = "My_App/assets/images/logo.png", scale=0.8, col={"md": 4})
 
 
 txt_name = TextField(
-                            hint_text="Username",
+                            hint_text="Nome",
                             hint_style=TextStyle(color=colors.WHITE),
                             bgcolor = colors.TRANSPARENT, 
                             border_color = colors.WHITE, 
