@@ -13,17 +13,18 @@ infoButton = Container(
 )
 
 searchBar = Container(
-    Column([
+        Column([
         ElevatedButton(
             #width = 350,
             height = 50,
             content = Row(
                 [
-                    Icon(name = icons.SEARCH_ROUNDED, color = colorBackground),
-                    Text("PESQUISAR", color = colorBackground),
+                    Icon(name = icons.SEARCH_ROUNDED, color = '#ffffff'),
+                    Text("PESQUISAR", color = '#ffffff'),
                 ],
                 alignment = alignment.center,
             ),
+            bgcolor = colorBackground
         ),
 
         ],
@@ -33,38 +34,29 @@ searchBar = Container(
 )
 
 
+def telaHome(self):
+    return Column([
+                searchBar,
+                infoButton,
+            ],
+            horizontal_alignment = CrossAxisAlignment.STRETCH
+            )
+
+
 class Home(UserControl):
 
     def __init__(self,page):
         super().__init__()
         self.page = page
 
-    def search_bar_clicked(self):
-        self.page.update()
-        pass
+    def search_bar_clicked(self, e):
+        self.page.go('/searchDestination')
 
     def build(self):
-        return Column([
-
-                Dropdown(
-                    width=100,
-                    options=[
-                        dropdown.Option("PESQUISAR"),
-                        dropdown.Option("HISTÓRICO"),
-                        dropdown.Option("FAVORITOS"),
-                    ],
-                    bgcolor = colorBackground,
-                    focused_bgcolor = colorBackground,
-                    border_color = colorBackground,
-                    color = colorBackground
-                ),
-
-
-                infoButton,
-
-            ],
-            horizontal_alignment = CrossAxisAlignment.STRETCH
-            )
+        searchBar.content.controls[0].on_click = self.search_bar_clicked
+        tela = telaHome(self)
+        return tela
+        
 
 
 

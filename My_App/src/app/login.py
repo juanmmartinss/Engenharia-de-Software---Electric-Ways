@@ -139,9 +139,7 @@ class Login(UserControl):
             txt_password.error_text = ""
 
         if(valid):
-            results = get_user(email)
-            user_email, user_password = results[0]
-            if(password != user_password):
+            if(not verify_password(email, password)):
                 txt_password.error_text = "Senha incorreta"
                 valid = False
 

@@ -8,8 +8,6 @@ from meusVeiculos import MeusVeiculos
 from searchDestination import SearchDestination
 from modules.UI import *
 
-from modules.UI import *
-
 def change_page(e, page):
   if e.control.selected_index == 0:
     page.go('/home')

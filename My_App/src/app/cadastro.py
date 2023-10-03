@@ -176,7 +176,7 @@ class Cadastro(UserControl):
         valid = self.validate_signup(username, email, password, password_confirm)
         if(valid):
             # cadastrar usuário
-            add_user(username, email, password)
+            add_user(username, email, encript_password(password))
             self.page.go('/login')
             
             
