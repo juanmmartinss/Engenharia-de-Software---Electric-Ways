@@ -66,7 +66,7 @@ for x in menu_veiculos:
 		elevation=20,
 		content=Container(
 		bgcolor="white",
-		width=300,
+		width=600,
 		border_radius = border_radius.all(30),
 		content=Column([
             ListTile(
@@ -120,6 +120,7 @@ sectioncard = Container(
             cardmenu
         ],
         scroll=ScrollMode.ALWAYS,
+        horizontal_alignment= CrossAxisAlignment.CENTER
     )
 	)
 
