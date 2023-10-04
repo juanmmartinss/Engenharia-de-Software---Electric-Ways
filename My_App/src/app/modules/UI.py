@@ -16,10 +16,20 @@ botaoPadrao = ButtonStyle(
         
     )
 
+botaoPadraoPerfil = ButtonStyle(
+        color = {MaterialState.DEFAULT: colors.WHITE}, #Estado(clicando, default, selecionando, etc),
+        bgcolor = colorBackground, 
+        padding = {MaterialState.DEFAULT: 40}, #Tamanho
+        overlay_color = colors.BLUE_200, #Cor quando seleciona
+        side = {MaterialState.DEFAULT: BorderSide(2, colors.WHITE)}, #Borda do botao
+        shape = {MaterialState.DEFAULT: RoundedRectangleBorder(radius=20)},
+        
+    )
+
 back_button = IconButton(
                         icon = icons.ARROW_BACK_IOS_NEW_ROUNDED,
                         icon_color = colorBackground,
-                        icon_size = 20,
+                        icon_size = 30,
                         tooltip = "Voltar",
                     )
 

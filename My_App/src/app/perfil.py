@@ -7,69 +7,69 @@ from modules.UI import *
 icone_perfil = CircleAvatar(
                 foreground_image_url = "My_App/assets/images/logo.png",
                 content = Text("VOCÊ"),
-                radius = 40,
+                radius = 100,
             )
 
 txt_name = Text(
                 "fabio fagundes",
                 color = colorBackground,
-                size = 15,
+                size = 25,
                 weight = FontWeight.BOLD,
             )
 
 txt_email = Text(
                 "fabio_fagundes@unifesp.br",
                 color = colorBackground,
-                size = 12
+                size = 25
             )
 
 txt_veiculos = Text(
                 "69 veículos",
                 color = colorBackground,
-                size = 12
+                size = 20
             )
 
 btn_editar_perfil = ElevatedButton(
     content = Row(
         [
-            Icon(name = icons.EDIT_ROUNDED, color = colorBackground),
-            Text("EDITAR PERFIL", color = colorBackground),
+            Icon(name = icons.EDIT_ROUNDED, color = colorBackground, size =20),
+            Text("EDITAR PERFIL", color = colorBackground, size = 20),
         ],
     ),
-    style = botaoPadrao,
+    style = botaoPadraoPerfil,
     bgcolor = colors.TRANSPARENT,
 )
 
 btn_editar_veiculos = ElevatedButton(
     content = Row(
         [
-            Icon(name = icons.ELECTRIC_CAR_ROUNDED, color = colorBackground),
-            Text("MEUS VEÍCULOS", color = colorBackground),
+            Icon(name = icons.ELECTRIC_CAR_ROUNDED, color = colorBackground, size =20),
+            Text("MEUS VEÍCULOS", color = colorBackground, size =20),
         ],
     ),
-    style = botaoPadrao,        
-    bgcolor = colors.TRANSPARENT,            
+    style = botaoPadraoPerfil,        
+    bgcolor = colors.TRANSPARENT,
 )
 
 btn_editar_rotas = ElevatedButton(
     content = Row(
         [
-            Icon(name = icons.CHECKLIST_ROUNDED, color = colorBackground),
-            Text("PREFERÊNCIAS DE ROTAS", color = colorBackground),
+            Icon(name = icons.CHECKLIST_ROUNDED, color = colorBackground, size =20),
+            Text("PREFERÊNCIAS DE ROTAS", color = colorBackground, size =20),
         ],
     ),                    
-    style = botaoPadrao,
+    style = botaoPadraoPerfil,
     bgcolor = colors.TRANSPARENT,
 )
 
 btn_logout = ElevatedButton(
     content = Row(
         [
-            Icon(name = icons.EXIT_TO_APP_ROUNDED, color = colorBackground),
-            Text("SAIR", color = colorBackground),
+            Icon(name = icons.EXIT_TO_APP_ROUNDED, color = colorBackground, size =20),
+            Text("SAIR", color = colorBackground, size =20),
         ],
     ),                       
-    style = botaoPadrao,
+    style = botaoPadraoPerfil,
     bgcolor = colors.TRANSPARENT,
 )
 
