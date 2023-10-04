@@ -82,13 +82,14 @@ class MeusVeiculos(UserControl):
         return Card(
             elevation=20,
             content=Container(
-            bgcolor="white",
+            bgcolor= '#5A5A5A',
+            #bgcolor = colorBackground,
             width=300,
             border_radius = border_radius.all(30),
             content=Column([
                 ListTile(
                         leading = Icon(icons.ELECTRIC_CAR_ROUNDED, size = 50),
-                        title = Text(modelo, max_lines = 3, size = 20, weight = FontWeight.BOLD, selectable=True),
+                        title = Text(modelo, max_lines = 3, size = 25, weight = FontWeight.BOLD, selectable=True),
                         subtitle = Text(f"Placa: {placa}", size = 20),
                         trailing = PopupMenuButton(
                             icon = icons.MORE_VERT,
@@ -114,7 +115,7 @@ class MeusVeiculos(UserControl):
                             [
                             TextButton(
                                 content = Container(
-                                    Text(value = "Selecionar", size = 20, color = colors.BLACK),
+                                    Text(value = "Selecionar", size = 20, color = colorBackgroundClaro),
                                     ),
                                 col = {"md": 4}, 
                             ),
