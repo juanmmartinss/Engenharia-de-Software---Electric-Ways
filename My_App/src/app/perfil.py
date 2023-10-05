@@ -11,20 +11,20 @@ icone_perfil = CircleAvatar(
             )
 
 txt_name = Text(
-                "fabio fagundes",
+                "Lorem Ipsum",
                 color = colorBackground,
                 size = 25,
                 weight = FontWeight.BOLD,
             )
 
 txt_email = Text(
-                "fabio_fagundes@unifesp.br",
+                "palceholder@email.com",
                 color = colorBackground,
                 size = 25
             )
 
 txt_veiculos = Text(
-                "69 veículos",
+                "0 veículo(s)",
                 color = colorBackground,
                 size = 20
             )
@@ -126,10 +126,17 @@ class Perfil(UserControl):
     
     def setup_perfil(self):
         id = self.page.session.get('user_id')
+        
         results = get_profile(id[0][0])
         user_name, user_email = results[0]
         txt_email.value = user_email
         txt_name.value = user_name
+        
+        results = get_vehicle_count(id[0][0])
+        veiculos = results[0][0]
+        txt_veiculos.value = f"{veiculos} veículo"
+        if veiculos != 1:
+            txt_veiculos.value += 's'
     
     def btn_back(self, e):
         self.page.go('/home')

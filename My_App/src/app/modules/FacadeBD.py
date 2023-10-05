@@ -47,6 +47,17 @@ def get_vehicles(id):
         return results
 
 
+def get_vehicle_count(id):
+        db = SQLiteDB()
+        db.connect()
+
+        cmd = """SELECT COUNT(*) FROM PERFIL_VEIC WHERE id_usuario = ?"""
+        results = db.execute_query(cmd, (id,))
+
+        db.close()
+        return results
+
+
 def add_user(username, email, password):
         db = SQLiteDB()
         db.connect()
