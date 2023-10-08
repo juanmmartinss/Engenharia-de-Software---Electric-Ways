@@ -66,11 +66,10 @@ class MeusVeiculos(UserControl):
         id = self.page.session.get('user_id')
         results = get_vehicles(id[0][0])
         for veic in results:
-            nome, modelo, placa, cor, range = veic
-            new_card = self.criar_card(nome, modelo, placa, cor, range)
+            id_veic, nome, modelo, placa, cor, range = veic
+            new_card = self.criar_card(id_veic, nome, modelo, placa, cor, range)
             card_row = tela.controls[2].content.controls[1]
             card_row.controls.append(new_card)
-        
         return tela
             
     
@@ -78,7 +77,12 @@ class MeusVeiculos(UserControl):
         self.page.go('/perfil')
         
         
-    def criar_card(self, nome, modelo, placa, cor, range):
+    def pick_car(self, e):
+        self.page.session.set('veic_id', e.control.data)
+        print(f"ID veículo selecionado: {self.page.session.get('veic_id')}")
+        
+        
+    def criar_card(self, id_veic, nome, modelo, placa, cor, range):
         return Card(
             elevation=20,
             content=Container(
@@ -114,10 +118,12 @@ class MeusVeiculos(UserControl):
                         Row(
                             [
                             TextButton(
+                                data=id_veic,
                                 content = Container(
                                     Text(value = "Selecionar", size = 20, color = colorBackgroundClaro),
                                     ),
                                 col = {"md": 4}, 
+                                on_click=self.pick_car
                             ),
                             ],
                             alignment = MainAxisAlignment.CENTER,
@@ -133,11 +139,3 @@ class MeusVeiculos(UserControl):
             )
 
             )
-        
-""" Row(
-        [
-        Text("Carga: 90%", size = 20, weight = FontWeight.BOLD),
-        IconButton(icon = icons.EDIT_ROUNDED, icon_size = 20)
-        ],
-        alignment = MainAxisAlignment.CENTER,
-    ), """

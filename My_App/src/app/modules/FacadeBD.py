@@ -37,7 +37,7 @@ def get_vehicles(id):
         db = SQLiteDB()
         db.connect()
 
-        cmd = """SELECT pv.nome, mv.nome, pv.placa, pv.cor, mv.range
+        cmd = """SELECT pv.id, pv.nome, mv.nome, pv.placa, pv.cor, mv.range
                 FROM PERFIL_VEIC AS pv
                 LEFT JOIN MODELO_VEIC AS mv ON mv.id = pv.id_modelo
                 WHERE pv.id_usuario = ?"""

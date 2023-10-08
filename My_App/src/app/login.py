@@ -149,6 +149,7 @@ class Login(UserControl):
     def signin_user(self, email):
         id = get_token(email)
         self.page.session.set('user_id', id)
+        self.page.session.set('veic_id', 0)
         self.page.go('/home')
 
     def btn_signin_clicked(self, e):
