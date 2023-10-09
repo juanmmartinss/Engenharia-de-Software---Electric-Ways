@@ -32,6 +32,7 @@ def views_handler(page):
           Login(page)
         ],
         bgcolor = colorBackground,
+        scroll = ScrollMode.AUTO,
       ),
 
 
@@ -40,7 +41,8 @@ def views_handler(page):
         controls=[
           Cadastro(page)
         ],
-        bgcolor = colorBackground
+        bgcolor = colorBackground,
+        scroll = ScrollMode.AUTO,
       ),
 
 
@@ -76,7 +78,7 @@ def views_handler(page):
             ),
           Home(page),
         ],
-        bgcolor = colorBackgroundClaro
+        bgcolor = colorBackgroundClaro,
       ),
       
       '/perfil':View(
@@ -84,7 +86,8 @@ def views_handler(page):
         controls=[
           Perfil(page)
         ],
-        bgcolor = colorBackgroundClaro
+        bgcolor = colorBackgroundClaro,
+        scroll = ScrollMode.AUTO,
       ),
       
       '/pontos':View(
@@ -92,7 +95,8 @@ def views_handler(page):
         controls=[
           Pontos(page)
         ],
-        bgcolor = colorBackgroundClaro
+        bgcolor = colorBackgroundClaro,
+        scroll = ScrollMode.AUTO,
       ),
 
       '/meusVeiculos':View(
@@ -100,7 +104,8 @@ def views_handler(page):
         controls=[
           MeusVeiculos(page)
         ],
-        bgcolor = colorBackgroundClaro
+        bgcolor = colorBackgroundClaro,
+        scroll = ScrollMode.AUTO,
       ),
       
       '/searchDestination':View(
@@ -108,6 +113,7 @@ def views_handler(page):
         controls=[
           SearchDestination(page)
         ],
-        bgcolor = colorBackgroundClaro
+        bgcolor = colorBackgroundClaro,
+        scroll = ScrollMode.AUTO,
       ),
   }

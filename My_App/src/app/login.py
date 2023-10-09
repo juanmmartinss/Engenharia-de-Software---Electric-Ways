@@ -5,69 +5,80 @@ from modules.UI import *
 from modules.crypto import *
 
 
-logo = Image(src="My_App/assets/images/logo.png", scale=0.8, col={"md": 4})
+logo = Image(
+            src="My_App/assets/images/logo.png", 
+            scale=0.8, 
+            col={"md": 4}
+            )
+
 
 txt_email = TextField(
-                            #label="Email",
-                            hint_text="Email",
-                            hint_style=TextStyle(color=colors.WHITE),
-                            bgcolor = colors.TRANSPARENT, 
-                            border_color = colors.WHITE, 
-                            border_width = 1,
-                            prefix_icon = "person_outline_rounded",
-                            border_radius = 20,
-                            text_size = 15,
-                            color = colors.WHITE,
-                            col = {"md": 4}
-                        
-                            )
+                    hint_text="Email",
+                    hint_style=TextStyle(color=colors.WHITE),
+                    bgcolor = colors.TRANSPARENT, 
+                    border_color = colors.WHITE, 
+                    border_width = 1,
+                    prefix_icon = "person_outline_rounded",
+                    border_radius = 20,
+                    text_size = 15,
+                    color = colors.WHITE,
+                    col = {"md": 4},
+                    )
 
 txt_password = TextField(
-                            hint_text="Senha",
-                            hint_style=TextStyle(color=colors.WHITE),
-                            bgcolor = colors.TRANSPARENT,
-                            border_color = colors.WHITE, 
-                            border_width = 1,
-                            password = True,
-                            can_reveal_password = True,
-                            prefix_icon = "lock_outline_rounded",
-                            border_radius = 20,
-                            text_size= 15,
-                            color = colors.WHITE, 
-                            col={"md": 4}
-                            )
+                    hint_text="Senha",
+                    hint_style=TextStyle(color=colors.WHITE),
+                    bgcolor = colors.TRANSPARENT,
+                    border_color = colors.WHITE, 
+                    border_width = 1,
+                    password = True,
+                    can_reveal_password = True,
+                    prefix_icon = "lock_outline_rounded",
+                    border_radius = 20,
+                    text_size= 15,
+                    color = colors.WHITE, 
+                    col={"md": 4}
+                    )
 
-txt_fpass = Column([
+txt_fpass = Column(
+                    [
                         TextButton(
                             content = Container(
                             Text(value = "Esqueceu a senha?", size = 14, color = colors.WHITE)
                             )
                         ),
-                        ],
-
-                        horizontal_alignment = CrossAxisAlignment.START
-                    )
+                    ],
+                    horizontal_alignment = CrossAxisAlignment.START
+                )
 
 
 btn_signin = ElevatedButton(
-                            content = Container(
-                                Text(value = "Entrar", size = 30),
-                                ),
-                            col = {"md": 4}, 
-                            style = botaoPadrao,
-                            width = 200,
-                            )
+                        content = Container(
+                            Text(value = "Entrar", size = 30),
+                            ),
+                        col = {"md": 4}, 
+                        style = botaoPadrao,
+                        width = 200,
+                    )
 
 btn_signup = TextButton(
-                            content = Container(
-                                Text(value = "Cadastre-se", 
-                                     size = 20, 
-                                     color = colors.WHITE,),
-                                ), 
-                            col={"md": 4}, 
-                            )
+                        content = Container(
+                            Text(
+                                value = "Cadastre-se", 
+                                size = 20, 
+                                color = colors.WHITE
+                                ),
+                            ), 
+                        col={"md": 4}, 
+                        )
 
-markdown_conectado = Checkbox(label="Mantenha-me conectado")
+
+markdown_conectado = Checkbox(
+                        label = Text("Mantenha-me conectado", color = colors.WHITE), 
+                        fill_color = colors.WHITE, 
+                        check_color = colors.GREEN,
+                        
+                    )
 
 def telaLogin(self):
     return ResponsiveRow(
@@ -165,5 +176,4 @@ class Login(UserControl):
       
       
     def btn_signup_clicked(self, e): 
-        self.page.go('/cadastro')     
-    
+        self.page.go('/cadastro')    

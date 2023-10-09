@@ -31,7 +31,6 @@ ordenar_button = PopupMenuButton(
     ],
 )
 
-cardmenu = Column()
 
 menu_veiculos = [
 {
@@ -60,8 +59,15 @@ menu_veiculos = [
 },
 ]
 
+
+
+card_menu = Column(
+    scroll='auto',
+    horizontal_alignment= CrossAxisAlignment.CENTER
+  ) 
+
 for x in menu_veiculos:
-	cardmenu.controls.append(
+    card_menu.controls.append(
 		Card(
 		elevation=20,
 		content=Container(
@@ -111,18 +117,16 @@ for x in menu_veiculos:
 		)
 
 		)
+)
 
-		)
+
 
 sectioncard = Container(
-	Column(
-        [
-            cardmenu
-        ],
-        scroll=ScrollMode.ALWAYS,
-        horizontal_alignment= CrossAxisAlignment.CENTER
-    )
-	)
+        card_menu,
+        
+        )
+
+
 
 def telaPerfil(self):
     return ResponsiveRow(
